@@ -1,0 +1,11 @@
+{
+  "name": "@lottiefiles/lottie-theming",
+  "version": "1.0.0",
+  "description": "Lottie theming library",
+  "main": "dist/index.js",
+  "repository": "git@github.com:LottieFiles/lottie-theming.git",
+  "license": "MIT",
+  "author": {
+    "name": "Karam Ali"
+  }
+}
