@@ -1,34 +1,27 @@
 module.exports = {
-  root: true,
-  env: {
-    browser: false,
-    es6: true,
-    node: true,
-    'jest/globals': true,
-  },
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-  },
-  plugins: ['@typescript-eslint', 'prettier', 'simple-import-sort', 'promise', 'jest'],
-  extends: [
-    'plugin:promise/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'eslint:recommended',
-    'plugin:prettier/recommended',
-    'prettier',
-    'prettier/@typescript-eslint',
-    'plugin:jest/recommended',
-  ],
-  rules: {
-    'prettier/prettier': [1, require('./prettier.config.js')],
-    'simple-import-sort/sort': 'error',
+  plugins: ["@lottiefiles", "only-warn"],
 
-    // Disable some preference rules
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/camelcase': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
+  extends: [
+  //   "plugin:@lottiefiles/nodejs",
+    "plugin:@lottiefiles/typescript",
+    "plugin:@lottiefiles/typescript-typechecking",
+    "plugin:@lottiefiles/prettier",
+  ],
+
+  globals: {
+    cep: true,
   },
+
+  parserOptions: {
+    sourceType: "module",
+    project: "tsconfig.json",
+    ecmaVersion: 2017,
+  },
+
+  rules: {
+    "no-console": "warn",
+    "@typescript-eslint/no-explicit-any": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+  },
+  ignorePatterns: ['node_modules', 'dist','packages']
 };
