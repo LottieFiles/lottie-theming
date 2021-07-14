@@ -1,6 +1,7 @@
 /**
  * Copyright 2021 Design Barn Inc.
  */
+
 import fetch from 'cross-fetch';
 
 enum TraverseFilter {
@@ -44,10 +45,27 @@ export default class LottieTheming {
   }
 
   public tokenize(): void {
+    function isNumeric(value: string): boolean {
+      return /^-?\d+$/.test(value);
+    }
     // eslint-disable-next-line no-restricted-syntax
     for (const [key, value, path, parent] of this._traverse(this.jsonData)) {
-      // do something here with each key and value
-      console.log(key, value, path, parent);
+      // if key is k and parent is c. then its a solid flat color thats not keyframed
+      if (path[path.length - 1] == 'k' && path[path.length - 2] == 'c') {
+        // console.log(key, value, path, parent);
+        // Todo: get the item name , shape name , layer name by traversing backwards.
+        // let pathString = '';
+
+        // path.forEach(function (item, index) {
+        //   if (!isNumeric(item)) {
+        //   } else if (isNumeric(item)) {
+        //   }
+        // });
+        console.log(path);
+        console.log(parent);
+        console.log(value);
+        console.log('---------------');
+      }
     }
   }
 
@@ -105,6 +123,7 @@ export default class LottieTheming {
   }
 
   /** object traversing algorithm  */
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   private *_traverse(o: any) {
     const memory = new Set();
 
