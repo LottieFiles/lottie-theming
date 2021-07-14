@@ -1,0 +1,29 @@
+{
+  "Name": "demo.json",
+  "Properties": [
+    {
+      "name": "PersonHead",
+      "locatorType": "propName",
+      "locator": "head"
+    },
+    {
+      "name": "PersonArm",
+      "locatorType": "className",
+      "locator": "arm"
+    },
+    {
+      "name": "PersonFoot",
+      "locatorType": "jsonPath",
+      "locator": "$.layers[1].something.somethingelse"
+    }
+  ],
+  "Themes": [
+    {
+      "Theme1": {
+        "PersonHead": "#00FFAA",
+        "PersonArm": "#01F133",
+        "PersonFoot": "#055577"
+      }
+    }
+  ]
+}
