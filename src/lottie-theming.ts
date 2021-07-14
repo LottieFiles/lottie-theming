@@ -2,6 +2,7 @@
  * Copyright 2021 Design Barn Inc.
  */
 import fetch from 'cross-fetch';
+import {JSONPath} from 'jsonpath-plus';
 
 enum TraverseFilter {
   /** prevents the children from being iterated. */
@@ -47,8 +48,19 @@ export default class LottieTheming {
     // eslint-disable-next-line no-restricted-syntax
     for (const [key, value, path, parent] of this._traverse(this.jsonData)) {
       // do something here with each key and value
-      console.log(key, value, path, parent);
+      console.log(`path: ${path}`);
     }
+  }
+
+  
+  public extractPaths(): void {    
+    var json = this.jsonData as any;
+    
+    //Extract paths based on c.k
+    const result = JSONPath({path: '$..c.k', json, flatten: false, resultType: 'path'});
+    result.forEach(element => {
+      console.log(`result: ${element}`);      
+    });
   }
 
   /**
