@@ -15,7 +15,7 @@ class ThemeConfig {
     }
 
     tempScaffold(): void {
-        this.properties.push(Property.);
+        //this.properties.push(Property.);
     }
 }
 
@@ -25,7 +25,7 @@ class Property {
         this.locator = locator;
         this.locatorType = locatorType;
     }
-    
+
     name: string;
     locator: string;
     locatorType: locatorType;

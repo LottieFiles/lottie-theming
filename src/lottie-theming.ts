@@ -3,7 +3,7 @@
  */
 import fetch from 'cross-fetch';
 import {JSONPath} from 'jsonpath-plus';
-import { ThemeConfig } from './property';
+import { ThemeConfig } from './themeConfig';
 
 enum TraverseFilter {
   /** prevents the children from being iterated. */
@@ -72,7 +72,7 @@ export default class LottieTheming {
 
   public scaffoldConfig(): void {
     const themeConfig = new ThemeConfig();
-    
+
   }
 
   /**
