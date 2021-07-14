@@ -1,12 +1,13 @@
 /**
  * Copyright 2021 Design Barn Inc.
  */
+import fetch from 'cross-fetch';
 
 enum TraverseFilter {
   /** prevents the children from being iterated. */
   'reject' = 'reject',
 }
-export class LottieTheming {
+export default class LottieTheming {
   private _jsonData: Record<string, unknown> = {};
 
   public get jsonData(): Record<string, unknown> {
@@ -69,6 +70,7 @@ export class LottieTheming {
 
       json = await result.json();
     } catch (err) {
+      console.log(err);
       throw new Error(`An error occurred while trying to load the Lottie file from URL`);
     }
 
@@ -96,7 +98,7 @@ export class LottieTheming {
       return JSON.parse(src);
     } catch (e) {
       // Try construct an absolute URL from the src URL
-      const srcUrl: URL = new URL(src, window.location.href);
+      const srcUrl: URL = new URL(src);
 
       return srcUrl.toString();
     }
