@@ -2,7 +2,8 @@
   "name": "@lottiefiles/lottie-theming",
   "version": "1.0.0",
   "description": "Lottie theming library",
-  "main": "dist/index.js",
+  "main": "dist/lottie-theming.js",
+  "module": "dist/lottie-theming.esm.js",
   "repository": "git@github.com:LottieFiles/lottie-theming.git",
   "license": "MIT",
   "author": {
@@ -18,8 +19,6 @@
     "lint:fix": "eslint . --ext .ts,.tsx,.js --fix"
   },
   "devDependencies": {
-    "style-dictionary": "3.0.1",
-    "shx": "^0.3.3",
     "@babel/core": "^7.11.0",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-proposal-decorators": "^7.10.5",
@@ -54,9 +53,13 @@
     "rollup-plugin-typescript2": "^0.27.1",
     "rollup-plugin-visualizer": "^4.0.4",
     "semantic-release": "^17.4.2",
+    "shx": "^0.3.3",
     "typescript": "^3.4.5"
   },
   "files": [
     "dist/"
-  ]
+  ],
+  "dependencies": {
+    "cross-fetch": "3.1.4"
+  }
 }

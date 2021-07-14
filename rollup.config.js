@@ -16,7 +16,7 @@ const extensions = ['.js', '.jsx', '.ts', '.tsx', '.mjs'];
 const outputDir = './dist/';
 
 export default {
-  input: './src/index.ts',
+  input: './src/lottie-theming.ts',
   treeshake: false,
   output: [
     {
@@ -50,13 +50,13 @@ export default {
         ],
       }),
     filesize(),
-    !production &&
-      serve({
-        contentBase: [outputDir],
-        open: true,
-        host: 'localhost',
-        port: 10000,
-      }),
+    // !production &&
+    //   serve({
+    //     contentBase: [outputDir],
+    //     open: true,
+    //     host: 'localhost',
+    //     port: 10000,
+    //   }),
 
     production && terser(),
   ],
