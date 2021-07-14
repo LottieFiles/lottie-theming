@@ -3,11 +3,13 @@
  */
 import fetch from 'cross-fetch';
 import {JSONPath} from 'jsonpath-plus';
+import { ThemeConfig } from './property';
 
 enum TraverseFilter {
   /** prevents the children from being iterated. */
   'reject' = 'reject',
 }
+
 export default class LottieTheming {
   private _jsonData: Record<string, unknown> = {};
 
@@ -53,14 +55,24 @@ export default class LottieTheming {
   }
 
   
-  public extractPaths(): void {    
+  public extractPaths(): any[] {    
     var json = this.jsonData as any;
     
     //Extract paths based on c.k
-    const result = JSONPath({path: '$..c.k', json, flatten: false, resultType: 'path'});
-    result.forEach(element => {
-      console.log(`result: ${element}`);      
-    });
+    const result = JSONPath({path: '$..c.k', json, flatten: false, resultType: 'all'});
+
+    return result;
+  }
+
+  public getPathValue(path: string): any {
+    var json = this.jsonData as any;
+    const result = JSONPath({path: path, json, resultType: 'value'});
+    console.log(result);
+  }
+
+  public scaffoldConfig(): void {
+    const themeConfig = new ThemeConfig();
+    
   }
 
   /**
