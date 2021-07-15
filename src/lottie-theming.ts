@@ -45,24 +45,51 @@ export default class LottieTheming {
   }
 
   public tokenize(): void {
+    const themeConfig = {
+      Name: 'testTheme',
+      Properties: [],
+      Themes: [],
+    };
+
     function isNumeric(value: string): boolean {
       return /^-?\d+$/.test(value);
     }
+    let propertyCount = 0;
+
     // eslint-disable-next-line no-restricted-syntax
     for (const [key, value, path, parent] of this._traverse(this.jsonData)) {
       // if key is k and parent is c. then its a solid flat color thats not keyframed
-      if (path[path.length - 1] == 'k' && path[path.length - 2] == 'c') {
+      if (path[path.length - 1] === 'k' && path[path.length - 2] === 'c') {
+        propertyCount++;
         // console.log(key, value, path, parent);
         // Todo: get the item name , shape name , layer name by traversing backwards.
-        // let pathString = '';
+        let pathString = '';
+        const token = { name: '', locatorType: 'jsonPath', locator: '' };
+        let defaultTheme = {};
 
-        // path.forEach(function (item, index) {
-        //   if (!isNumeric(item)) {
-        //   } else if (isNumeric(item)) {
-        //   }
-        // });
-        console.log(path);
-        console.log(parent);
+        path.forEach(function (item, index) {
+          if (!isNumeric(item)) {
+            const val = `['${item}']`;
+
+            pathString += val;
+          } else if (isNumeric(item)) {
+            const val = `[${item}]`;
+
+            pathString += val;
+          }
+        });
+        const name = `property_${propertyCount}`;
+
+        token.name = name;
+        token.locator = pathString;
+        const themeProperty = { name: value };
+
+        defaultTheme = { ...defaultTheme, ...themeProperty };
+
+        // themeConfig.Properties.push(token);
+        // console.log(path);
+        // console.log(parent);
+        console.log(pathString);
         console.log(value);
         console.log('---------------');
       }
