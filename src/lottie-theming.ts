@@ -149,6 +149,14 @@ export default class LottieTheming {
     }
   }
 
+  private _setPathValue(object: any, path: string[], value: any): string {
+    return path.reduce(
+      (original: string, current: string, i: number) =>
+        (original[current] = path.length === ++i ? value : original[current] || {}),
+      object,
+    );
+  }
+
   /** object traversing algorithm  */
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   private *_traverse(o: any) {
