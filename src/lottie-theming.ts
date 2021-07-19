@@ -45,28 +45,47 @@ export default class LottieTheming {
   }
 
   public tokenize(): void {
+    // main theme config object
     const themeConfig = {
       Name: 'testTheme' as string,
       Properties: [] as any[],
       Themes: [] as any[],
     };
+    // default theme object to add to themes array
     let defaultTheme = {};
 
+    // function to check numberic value
     function isNumeric(value: string): boolean {
       return /^-?\d+$/.test(value);
     }
+    // function to convert rgb to hex
+    function rgb2hex(rgb: any): any {
+      // eslint-disable-next-line require-unicode-regexp
+      rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+
+      return rgb && rgb.length === 4
+        ? `#${`0${parseInt(rgb[1], 10).toString(16)}`.slice(-2)}${`0${parseInt(rgb[2], 10).toString(16)}`.slice(
+            -2,
+          )}${`0${parseInt(rgb[3], 10).toString(16)}`.slice(-2)}`
+        : '';
+    }
+
+    // using this to name tokens for now until we use nm and cl values from the object itself
     let propertyCount = 0;
 
+    // traverse through the entire lottie json. returns all objects inside of the lottie separately.  each one is checked against an assumed condition to get the necessary values
     // eslint-disable-next-line no-restricted-syntax
     for (const [key, value, path, parent] of this._traverse(this.jsonData)) {
       // if key is k and parent is c. then its a solid flat color thats not keyframed
       if (path[path.length - 1] === 'k' && path[path.length - 2] === 'c') {
         propertyCount++;
-        // console.log(key, value, path, parent);
-        // Todo: get the item name , shape name , layer name by traversing backwards.
+
+        // Todo : get the item name , shape name , layer name by traversing backwards.
+
         let pathString = '';
         const token = { name: '', locatorType: 'jsonPath', locator: '' };
 
+        // construct the json path using the individual path values
         path.forEach(function (item, index) {
           if (!isNumeric(item)) {
             const val = `['${item}']`;
@@ -78,25 +97,44 @@ export default class LottieTheming {
             pathString += val;
           }
         });
+
+        // using this to name tokens for now until we use nm and cl values from the object itself
         const name = `property_${propertyCount}`;
 
+        // constructing the tokens for properties array
         token.name = name;
         token.locator = pathString;
-        const themeProperty = { name: value };
-
-        defaultTheme = { ...defaultTheme, ...themeProperty };
-
         themeConfig.Properties.push(token);
-        // console.log(path);
-        // console.log(parent);
 
+        // instantiate color string
+        let color = '';
+
+        // convert the color to hex
+        if (value.length === 3) {
+          color = `rgb(${value[0] * 255},${value[1] * 255},${value[2] * 255})`;
+          color = rgb2hex(color);
+        } else if (value.length === 4) {
+          color = `rgba(${value[0] * 255},${value[1] * 255},${value[2] * 255},${value[3]})`;
+          const rgba = color.replace(/^rgba?\(|\s+|\)$/g, '').split(',');
+
+          color = `#${((1 << 24) + (parseInt(rgba[0]) << 16) + (parseInt(rgba[1]) << 8) + parseInt(rgba[2]))
+            .toString(16)
+            .slice(1)}`;
+        }
+
+        // constructing the tokens for the default and current theme.
+        defaultTheme = { ...defaultTheme, [name]: color };
+        // console.log(path);
+        console.log(name);
         console.log(pathString);
         console.log(value);
         console.log('---------------');
       }
     }
-    // console.log(themeConfig);
-    console.log(defaultTheme);
+    // push the default theme into themes array.
+    themeConfig.Themes.push({ defaultTheme });
+    // print full theme config
+    console.dir(themeConfig, { depth: null });
   }
 
   /**
