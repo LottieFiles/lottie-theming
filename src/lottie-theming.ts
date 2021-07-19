@@ -46,10 +46,11 @@ export default class LottieTheming {
 
   public tokenize(): void {
     const themeConfig = {
-      Name: 'testTheme',
-      Properties: [],
-      Themes: [],
+      Name: 'testTheme' as string,
+      Properties: [] as any[],
+      Themes: [] as any[],
     };
+    let defaultTheme = {};
 
     function isNumeric(value: string): boolean {
       return /^-?\d+$/.test(value);
@@ -65,7 +66,6 @@ export default class LottieTheming {
         // Todo: get the item name , shape name , layer name by traversing backwards.
         let pathString = '';
         const token = { name: '', locatorType: 'jsonPath', locator: '' };
-        let defaultTheme = {};
 
         path.forEach(function (item, index) {
           if (!isNumeric(item)) {
@@ -86,14 +86,17 @@ export default class LottieTheming {
 
         defaultTheme = { ...defaultTheme, ...themeProperty };
 
-        // themeConfig.Properties.push(token);
+        themeConfig.Properties.push(token);
         // console.log(path);
         // console.log(parent);
+
         console.log(pathString);
         console.log(value);
         console.log('---------------');
       }
     }
+    // console.log(themeConfig);
+    console.log(defaultTheme);
   }
 
   /**
