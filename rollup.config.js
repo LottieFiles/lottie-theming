@@ -16,7 +16,7 @@ const extensions = ['.js', '.jsx', '.ts', '.tsx', '.mjs'];
 const outputDir = './dist/';
 
 export default {
-  input: './src/lottie-theming.ts',
+  input: './src/index.ts',
   treeshake: false,
   output: [
     {
@@ -46,6 +46,7 @@ export default {
       copy({
         targets: [
           { src: './src/demo-lottie.json', dest: outputDir },
+          { src: './src/demo-config.json', dest: outputDir },
           { src: './src/demo.js', dest: outputDir },
         ],
       }),
