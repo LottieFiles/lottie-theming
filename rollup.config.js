@@ -45,8 +45,8 @@ export default {
     !production &&
       copy({
         targets: [
-          { src: './src/demo-lottie.json', dest: outputDir },
-          { src: './src/demo.js', dest: outputDir },
+          { src: './src/demo-tokenize.js', dest: outputDir },
+          { src: './src/demo-apply-theme.js', dest: outputDir },
         ],
       }),
     filesize(),

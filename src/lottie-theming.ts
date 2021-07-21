@@ -2,6 +2,8 @@
  * Copyright 2021 Design Barn Inc.
  */
 
+import fs from 'fs';
+
 import fetch from 'cross-fetch';
 
 enum TraverseFilter {
@@ -69,7 +71,14 @@ export default class LottieTheming {
           )}${`0${parseInt(rgb[3], 10).toString(16)}`.slice(-2)}`
         : '';
     }
+    function rgbaToHex(color: string) {
+      const rgba = color.replace(/^rgba?\(|\s+|\)$/g, '').split(',');
+      const hex = `#${((1 << 24) + (parseInt(rgba[0]) << 16) + (parseInt(rgba[1]) << 8) + parseInt(rgba[2]))
+        .toString(16)
+        .slice(1)}`;
 
+      return hex;
+    }
     // using this to name tokens for now until we use nm and cl values from the object itself
     let propertyCount = 0;
 
@@ -83,7 +92,7 @@ export default class LottieTheming {
         // Todo : get the item name , shape name , layer name by traversing backwards.
 
         let pathString = '';
-        const token = { name: '', locatorType: 'jsonPath', locator: '' };
+        const token = { name: '', locatorType: 'jsonPath', locator: '', locatorArray: [] as string[] };
 
         // construct the json path using the individual path values
         path.forEach(function (item, index) {
@@ -104,6 +113,7 @@ export default class LottieTheming {
         // constructing the tokens for properties array
         token.name = name;
         token.locator = pathString;
+        token.locatorArray = path;
         themeConfig.Properties.push(token);
 
         // instantiate color string
@@ -115,11 +125,7 @@ export default class LottieTheming {
           color = rgb2hex(color);
         } else if (value.length === 4) {
           color = `rgba(${value[0] * 255},${value[1] * 255},${value[2] * 255},${value[3]})`;
-          const rgba = color.replace(/^rgba?\(|\s+|\)$/g, '').split(',');
-
-          color = `#${((1 << 24) + (parseInt(rgba[0]) << 16) + (parseInt(rgba[1]) << 8) + parseInt(rgba[2]))
-            .toString(16)
-            .slice(1)}`;
+          color = rgbaToHex(color);
         }
 
         // constructing the tokens for the default and current theme.
@@ -135,6 +141,69 @@ export default class LottieTheming {
     themeConfig.Themes.push({ defaultTheme });
     // print full theme config
     console.dir(themeConfig, { depth: null });
+
+    const data = JSON.stringify(themeConfig);
+
+    // write JSON string to a file
+    fs.writeFile('demo-theme.json', data, err => {
+      if (err) {
+        throw err;
+      }
+      console.log('JSON data is saved.');
+    });
+  }
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  public applyTheme(themeFilePath: string, themeName: string): void {
+    // read JSON object from file
+    fs.readFile(themeFilePath, 'utf-8', (err, data) => {
+      if (err) {
+        throw err;
+      }
+
+      // parse JSON object
+      const themeConfig = JSON.parse(data.toString());
+
+      // loop through all the themes
+      // eslint-disable-next-line no-restricted-syntax
+      for (const key in themeConfig.Themes) {
+        // find the theme name that the user provided from config.themes array
+        if (themeConfig.Themes[key].hasOwnProperty(themeName)) {
+          // go through the properties inside of the theme object
+          for (const property in themeConfig.Themes[key][themeName]) {
+            const propertyName = property;
+            const color = themeConfig.Themes[key][themeName][property];
+            let path = '';
+            let locator = [];
+            // console.log(themeConfig.Themes[key][themeName][property]);
+
+            // go through all the property objects to find the json path from config.properties array
+            for (const pathObject in themeConfig.Properties) {
+              if (themeConfig.Properties[pathObject].name === propertyName) {
+                path = themeConfig.Properties[pathObject].locator;
+                locator = themeConfig.Properties[pathObject].locatorArray;
+              }
+            }
+            console.log(propertyName);
+            console.log(this._hexToRgb(color));
+            console.log(path);
+            let modified = this._setPathValue(this._jsonData, locator, this._hexToRgb(color));
+            console.log(modified);
+          }
+        }
+      }
+      const json = JSON.stringify(this._jsonData);
+
+      // write JSON string to a file
+      fs.writeFile('modified_lottie.json', json, err => {
+        if (err) {
+          throw err;
+        }
+        console.log('JSON data is saved.');
+      });
+      // print JSON object
+      // console.log(themeConfig);
+    });
   }
 
   /**
@@ -192,10 +261,24 @@ export default class LottieTheming {
 
   private _setPathValue(object: any, path: string[], value: any): string {
     return path.reduce(
-      (original: string, current: string, i: number) =>
+      (original: any, current: any, i: number) =>
         (original[current] = path.length === ++i ? value : original[current] || {}),
       object,
     );
+  }
+
+  private _hexToRgb(hex: string) {
+    const result = /^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i.exec(hex);
+
+    if (result) {
+      const r = parseInt(result[1], 16);
+      const g = parseInt(result[2], 16);
+      const b = parseInt(result[3], 16);
+
+      return [r / 255, g / 255, b / 255]; // return 23,14,45 -> reformat if needed
+    }
+
+    return null;
   }
 
   /** object traversing algorithm  */
@@ -232,13 +315,4 @@ export default class LottieTheming {
     }
     yield* innerTraversal(o);
   }
-
-  // style tokenizer
-  // function to extract style tokens from a lottie object
-  // json based tree exploration to find all stylable elements
-  // start with color first
-  // json paths as primary identifier and alias as nm
-
-  // style applicator
-  // functioon to apply style token and config to a lottie object
 }
