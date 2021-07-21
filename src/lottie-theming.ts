@@ -2,6 +2,7 @@
  * Copyright 2021 Design Barn Inc.
  */
 
+/* eslint-disable no-restricted-syntax */
 import fs from 'fs';
 
 import fetch from 'cross-fetch';
@@ -170,6 +171,7 @@ export default class LottieTheming {
         // find the theme name that the user provided from config.themes array
         if (themeConfig.Themes[key].hasOwnProperty(themeName)) {
           // go through the properties inside of the theme object
+
           for (const property in themeConfig.Themes[key][themeName]) {
             const propertyName = property;
             const color = themeConfig.Themes[key][themeName][property];
@@ -184,10 +186,12 @@ export default class LottieTheming {
                 locator = themeConfig.Properties[pathObject].locatorArray;
               }
             }
+            // print out details for each token
             console.log(propertyName);
             console.log(this._hexToRgb(color));
             console.log(path);
-            let modified = this._setPathValue(this._jsonData, locator, this._hexToRgb(color));
+            const modified = this._setPathValue(this._jsonData, locator, this._hexToRgb(color));
+
             console.log(modified);
           }
         }
