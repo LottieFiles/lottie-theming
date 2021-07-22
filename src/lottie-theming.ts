@@ -165,37 +165,8 @@ export default class LottieTheming {
       // parse JSON object
       const themeConfig = JSON.parse(data.toString());
 
-      // loop through all the themes
-      // eslint-disable-next-line no-restricted-syntax
-      for (const key in themeConfig.Themes) {
-        // find the theme name that the user provided from config.themes array
-        if (themeConfig.Themes[key].hasOwnProperty(themeName)) {
-          // go through the properties inside of the theme object
+      this._applyTheme(themeConfig, themeName);
 
-          for (const property in themeConfig.Themes[key][themeName]) {
-            const propertyName = property;
-            const color = themeConfig.Themes[key][themeName][property];
-            let path = '';
-            let locator = [];
-            // console.log(themeConfig.Themes[key][themeName][property]);
-
-            // go through all the property objects to find the json path from config.properties array
-            for (const pathObject in themeConfig.Properties) {
-              if (themeConfig.Properties[pathObject].name === propertyName) {
-                path = themeConfig.Properties[pathObject].locator;
-                locator = themeConfig.Properties[pathObject].locatorArray;
-              }
-            }
-            // print out details for each token
-            console.log(propertyName);
-            console.log(this._hexToRgb(color));
-            console.log(path);
-            const modified = this._setPathValue(this._jsonData, locator, this._hexToRgb(color));
-
-            console.log(modified);
-          }
-        }
-      }
       const json = JSON.stringify(this._jsonData);
 
       // write JSON string to a file
@@ -208,6 +179,40 @@ export default class LottieTheming {
       // print JSON object
       // console.log(themeConfig);
     });
+  }
+
+  private _applyTheme(themeConfig: any, themeName: string): void {
+    // loop through all the themes
+    // eslint-disable-next-line no-restricted-syntax
+    for (const key in themeConfig.Themes) {
+      // find the theme name that the user provided from config.themes array
+      if (themeConfig.Themes[key].hasOwnProperty(themeName)) {
+        // go through the properties inside of the theme object
+
+        for (const property in themeConfig.Themes[key][themeName]) {
+          const propertyName = property;
+          const color = themeConfig.Themes[key][themeName][property];
+          let path = '';
+          let locator = [];
+          // console.log(themeConfig.Themes[key][themeName][property]);
+
+          // go through all the property objects to find the json path from config.properties array
+          for (const pathObject in themeConfig.Properties) {
+            if (themeConfig.Properties[pathObject].name === propertyName) {
+              path = themeConfig.Properties[pathObject].locator;
+              locator = themeConfig.Properties[pathObject].locatorArray;
+            }
+          }
+          // print out details for each token
+          console.log(propertyName);
+          console.log(this._hexToRgb(color));
+          console.log(path);
+          const modified = this._setPathValue(this._jsonData, locator, this._hexToRgb(color));
+
+          console.log(modified);
+        }
+      }
+    }
   }
 
   /**
