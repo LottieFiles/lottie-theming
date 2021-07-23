@@ -12,14 +12,15 @@ enum TraverseFilter {
   'reject' = 'reject',
 }
 export default class LottieTheming {
-  private _jsonData: Record<string, unknown> = {};
+  private _lottieJsonData: Record<string, unknown> = {};
+  private _themeJsonData: any;
 
-  public get jsonData(): Record<string, unknown> {
-    return this._jsonData;
+  public get lottieJsonData(): Record<string, unknown> {
+    return this._lottieJsonData;
   }
 
-  public set jsonData(value: Record<string, unknown>) {
-    this._jsonData = value;
+  public set lottieJsonData(value: Record<string, unknown>) {
+    this._lottieJsonData = value;
   }
 
   /**
@@ -42,7 +43,7 @@ export default class LottieTheming {
       // throw error
       // this.dispatchEvent(new CustomEvent(PlayerEvents.Error));
     }
-    this.jsonData = jsonData;
+    this.lottieJsonData = jsonData;
 
     return jsonData;
   }
@@ -85,7 +86,7 @@ export default class LottieTheming {
 
     // traverse through the entire lottie json. returns all objects inside of the lottie separately.  each one is checked against an assumed condition to get the necessary values
     // eslint-disable-next-line no-restricted-syntax
-    for (const [key, value, path, parent] of this._traverse(this.jsonData)) {
+    for (const [key, value, path, parent] of this._traverse(this.lottieJsonData)) {
       // if key is k and parent is c. then its a solid flat color thats not keyframed
       if (path[path.length - 1] === 'k' && path[path.length - 2] === 'c') {
         propertyCount++;
@@ -155,7 +156,7 @@ export default class LottieTheming {
   }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  public applyTheme(themeFilePath: string, themeName: string): void {
+  public applyThemeFromFile(themeFilePath: string, themeName: string): void {
     // read JSON object from file
     fs.readFile(themeFilePath, 'utf-8', (err, data) => {
       if (err) {
@@ -166,19 +167,19 @@ export default class LottieTheming {
       const themeConfig = JSON.parse(data.toString());
 
       this._applyTheme(themeConfig, themeName);
-
-      const json = JSON.stringify(this._jsonData);
-
-      // write JSON string to a file
-      fs.writeFile('modified_lottie.json', json, err => {
-        if (err) {
-          throw err;
-        }
-        console.log('JSON data is saved.');
-      });
-      // print JSON object
-      // console.log(themeConfig);
     });
+  }
+
+  public applyThemeFromJSON(json: string, themeName: string): void {
+    this._applyTheme(json, themeName);
+  }
+
+  public applyThemeFromUrl(themeUrl: string, themeName: string): void {
+    // todo
+  }
+
+  public themes(): string[] {
+    return this._themeJsonData.themes;
   }
 
   private _applyTheme(themeConfig: any, themeName: string): void {
@@ -207,7 +208,7 @@ export default class LottieTheming {
           console.log(propertyName);
           console.log(this._hexToRgb(color));
           console.log(path);
-          const modified = this._setPathValue(this._jsonData, locator, this._hexToRgb(color));
+          const modified = this._setPathValue(this._lottieJsonData, locator, this._hexToRgb(color));
 
           console.log(modified);
         }
@@ -248,6 +249,16 @@ export default class LottieTheming {
     const mandatory = ['v', 'ip', 'op', 'layers', 'fr', 'w', 'h'];
 
     return mandatory.every(field => Object.prototype.hasOwnProperty.call(json, field));
+  }
+
+  private _log(message: string): void {
+    const env = process.env.NODE_ENV || 'development';
+
+    if (env !== 'development') {
+      return;
+    }
+
+    console.log(message);
   }
 
   /**
