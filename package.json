@@ -1,8 +1,5 @@
 {
-  "name": "lottie-theming-library",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/LottieFiles/lottie-theming.git",
-  "author": "Alex Harper <alex@lottiefiles.com>",
-  "license": "MIT"
+  "devDependencies": {
+    "lerna": "4.0.0"
+  }
 }
