@@ -1,0 +1,13 @@
+{
+  "name": "lottie-theming-cli",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Alex Harper",
+  "license": "MIT",
+  "bin": {
+    "lftheme": "./index.js"
+  },
+  "dependencies": {
+    "@lottiefiles/lottie-theming": "*"
+  }  
+}

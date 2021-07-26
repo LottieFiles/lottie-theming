@@ -1,6 +1,6 @@
 {
     "name": "@lottiefiles/lottie-theming",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "description": "Lottie theming library",
     "main": "dist/lottie-theming.js",
     "module": "dist/lottie-theming.esm.js",
