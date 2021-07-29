@@ -32,14 +32,14 @@ export default class LottieTheming {
     let srcAttrib = typeof srcParsed === 'string' ? 'path' : 'animationData';
 
     // Fetch resource if src is a remote URL
-    if (srcAttrib === 'path') {
-      jsonData = await this._fromURL(srcParsed as string);
+    if (srcAttrib === 'path') {      
+      jsonData = await this._fromURL(srcParsed as string);      
       srcAttrib = 'animationData';
     } else {
       jsonData = srcParsed;
     }
     if (!this._isLottie(jsonData)) {
-      // throw error
+      throw Error();
       // this.dispatchEvent(new CustomEvent(PlayerEvents.Error));
     }
     this.jsonData = jsonData;
@@ -47,7 +47,7 @@ export default class LottieTheming {
     return jsonData;
   }
 
-  public tokenize(): void {
+  public tokenize(themePath: string): any {
     // main theme config object
     const themeConfig = {
       Name: 'testTheme' as string,
@@ -84,12 +84,11 @@ export default class LottieTheming {
     let propertyCount = 0;
 
     // traverse through the entire lottie json. returns all objects inside of the lottie separately.  each one is checked against an assumed condition to get the necessary values
-    // eslint-disable-next-line no-restricted-syntax
-    for (const [key, value, path, parent] of this._traverse(this.jsonData)) {
+    // eslint-disable-next-line no-restricted-syntax    
+    for (const [key, value, path, parent] of this._traverse(this.jsonData)) {      
       // if key is k and parent is c. then its a solid flat color thats not keyframed
       if (path[path.length - 1] === 'k' && path[path.length - 2] === 'c') {
-        propertyCount++;
-
+        propertyCount++;        
         // Todo : get the item name , shape name , layer name by traversing backwards.
 
         let pathString = '';
@@ -132,30 +131,20 @@ export default class LottieTheming {
         // constructing the tokens for the default and current theme.
         defaultTheme = { ...defaultTheme, [name]: color };
         // console.log(path);
-        console.log(name);
-        console.log(pathString);
-        console.log(value);
-        console.log('---------------');
+        // console.log(name);
+        // console.log(pathString);
+        // console.log(value);
+        // console.log('---------------');
       }
     }
     // push the default theme into themes array.
     themeConfig.Themes.push({ defaultTheme });
-    // print full theme config
-    console.dir(themeConfig, { depth: null });
-
-    const data = JSON.stringify(themeConfig);
-
-    // write JSON string to a file
-    fs.writeFile('demo-theme.json', data, err => {
-      if (err) {
-        throw err;
-      }
-      console.log('JSON data is saved.');
-    });
+   
+    return themeConfig;
   }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  public applyTheme(themeFilePath: string, themeName: string): void {
+  public applyTheme(themeFilePath: string, themeName: string): any {
     // read JSON object from file
     fs.readFile(themeFilePath, 'utf-8', (err, data) => {
       if (err) {
@@ -186,27 +175,19 @@ export default class LottieTheming {
                 locator = themeConfig.Properties[pathObject].locatorArray;
               }
             }
-            // print out details for each token
-            console.log(propertyName);
-            console.log(this._hexToRgb(color));
-            console.log(path);
+            
+            // todo: print out details for each token if --debug
+            //console.log(propertyName);
+            //console.log(this._hexToRgb(color));
+            //console.log(path);
             const modified = this._setPathValue(this._jsonData, locator, this._hexToRgb(color));
 
-            console.log(modified);
+            //console.log(modified);
           }
         }
       }
-      const json = JSON.stringify(this._jsonData);
-
-      // write JSON string to a file
-      fs.writeFile('modified_lottie.json', json, err => {
-        if (err) {
-          throw err;
-        }
-        console.log('JSON data is saved.');
-      });
-      // print JSON object
-      // console.log(themeConfig);
+      
+      return this._jsonData;
     });
   }
 
