@@ -1,11 +1,22 @@
-# Third party
-**/node_modules
+# Package management
+node_modules
+.yarn/*
+.pnp.*
 
-# Build products
-docs/
-dist/
+# Changelog
+CHANGELOG.md
+
+# Build artifacts
+dist
+release
 
 # Testing
-coverage/
-example/
-raw/
+__tests__
+coverage
+
+# IDE related
+.idea
+.history
+
+# Temporary or local data
+tmp

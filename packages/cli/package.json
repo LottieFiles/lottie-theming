@@ -8,6 +8,6 @@
     "lftheme": "./index.js"
   },
   "dependencies": {
-    "@lottiefiles/lottie-theming": "*"
-  }  
+    "@lottiefiles/lottie-theming": "workspace:*"
+  }
 }

@@ -2,7 +2,6 @@
  * Copyright 2021 Design Barn Inc.
  */
 
-/* eslint-disable no-restricted-syntax */
 import fs from 'fs';
 
 import fetch from 'cross-fetch';
@@ -11,7 +10,8 @@ enum TraverseFilter {
   /** prevents the children from being iterated. */
   'reject' = 'reject',
 }
-export default class LottieTheming {
+
+export class LottieTheming {
   private _jsonData: Record<string, unknown> = {};
 
   public get jsonData(): Record<string, unknown> {
@@ -51,35 +51,39 @@ export default class LottieTheming {
     // main theme config object
     const themeConfig = {
       Name: 'testTheme' as string,
-      Properties: [] as any[],
-      Themes: [] as any[],
+      Properties: [] as unknown[],
+      Themes: [] as unknown[],
     };
     // default theme object to add to themes array
     let defaultTheme = {};
 
-    // function to check numberic value
+    // Check numberic value
     function isNumeric(value: string): boolean {
-      return /^-?\d+$/.test(value);
+      return /^-?\d+$/u.test(value);
     }
-    // function to convert rgb to hex
-    function rgb2hex(rgb: any): any {
-      // eslint-disable-next-line require-unicode-regexp
-      rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
 
-      return rgb && rgb.length === 4
-        ? `#${`0${parseInt(rgb[1], 10).toString(16)}`.slice(-2)}${`0${parseInt(rgb[2], 10).toString(16)}`.slice(
-            -2,
-          )}${`0${parseInt(rgb[3], 10).toString(16)}`.slice(-2)}`
-        : '';
+    // Convert rgb to hex
+    function rgb2hex(rgb: string): string {
+      const rgbMatches = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/iu);
+
+      if (rgbMatches && rgbMatches.length === 4) {
+        return `#${`0${parseInt(rgbMatches[1], 10).toString(16)}`.slice(-2)}${`0${parseInt(rgbMatches[2], 10).toString(
+          16,
+        )}`.slice(-2)}${`0${parseInt(rgbMatches[3], 10).toString(16)}`.slice(-2)}`;
+      }
+
+      return '';
     }
+
     function rgbaToHex(color: string) {
-      const rgba = color.replace(/^rgba?\(|\s+|\)$/g, '').split(',');
+      const rgba = color.replace(/^rgba?\(|\s+|\)$/gu, '').split(',');
       const hex = `#${((1 << 24) + (parseInt(rgba[0]) << 16) + (parseInt(rgba[1]) << 8) + parseInt(rgba[2]))
         .toString(16)
         .slice(1)}`;
 
       return hex;
     }
+
     // using this to name tokens for now until we use nm and cl values from the object itself
     let propertyCount = 0;
 
@@ -96,7 +100,7 @@ export default class LottieTheming {
         const token = { name: '', locatorType: 'jsonPath', locator: '', locatorArray: [] as string[] };
 
         // construct the json path using the individual path values
-        path.forEach(function (item, index) {
+        path.forEach((item, index) => {
           if (!isNumeric(item)) {
             const val = `['${item}']`;
 
@@ -108,19 +112,19 @@ export default class LottieTheming {
           }
         });
 
-        // using this to name tokens for now until we use nm and cl values from the object itself
+        // Using this to name tokens for now until we use nm and cl values from the object itself
         const name = `property_${propertyCount}`;
 
-        // constructing the tokens for properties array
+        // Constructing the tokens for properties array
         token.name = name;
         token.locator = pathString;
         token.locatorArray = path;
         themeConfig.Properties.push(token);
 
-        // instantiate color string
+        // Instantiate color string
         let color = '';
 
-        // convert the color to hex
+        // Convert the color to hex
         if (value.length === 3) {
           color = `rgb(${value[0] * 255},${value[1] * 255},${value[2] * 255})`;
           color = rgb2hex(color);
@@ -129,7 +133,7 @@ export default class LottieTheming {
           color = rgbaToHex(color);
         }
 
-        // constructing the tokens for the default and current theme.
+        // Constructing the tokens for the default and current theme.
         defaultTheme = { ...defaultTheme, [name]: color };
         // console.log(path);
         console.log(name);
@@ -138,15 +142,17 @@ export default class LottieTheming {
         console.log('---------------');
       }
     }
-    // push the default theme into themes array.
+
+    // Push the default theme into themes array.
     themeConfig.Themes.push({ defaultTheme });
-    // print full theme config
+
+    // Print full theme config
     console.dir(themeConfig, { depth: null });
 
     const data = JSON.stringify(themeConfig);
 
-    // write JSON string to a file
-    fs.writeFile('demo-theme.json', data, err => {
+    // Write JSON string to a file
+    fs.writeFile('demo-theme.json', data, (err) => {
       if (err) {
         throw err;
       }
@@ -154,7 +160,6 @@ export default class LottieTheming {
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/member-ordering
   public applyTheme(themeFilePath: string, themeName: string): void {
     // read JSON object from file
     fs.readFile(themeFilePath, 'utf-8', (err, data) => {
@@ -162,15 +167,14 @@ export default class LottieTheming {
         throw err;
       }
 
-      // parse JSON object
+      // Parse JSON object
       const themeConfig = JSON.parse(data.toString());
 
-      // loop through all the themes
-      // eslint-disable-next-line no-restricted-syntax
+      // Loop through all the themes
       for (const key in themeConfig.Themes) {
-        // find the theme name that the user provided from config.themes array
+        // Find the theme name that the user provided from config.themes array
         if (themeConfig.Themes[key].hasOwnProperty(themeName)) {
-          // go through the properties inside of the theme object
+          // Go through the properties inside of the theme object
 
           for (const property in themeConfig.Themes[key][themeName]) {
             const propertyName = property;
@@ -179,14 +183,15 @@ export default class LottieTheming {
             let locator = [];
             // console.log(themeConfig.Themes[key][themeName][property]);
 
-            // go through all the property objects to find the json path from config.properties array
+            // Go through all the property objects to find the json path from config.properties array
             for (const pathObject in themeConfig.Properties) {
               if (themeConfig.Properties[pathObject].name === propertyName) {
                 path = themeConfig.Properties[pathObject].locator;
                 locator = themeConfig.Properties[pathObject].locatorArray;
               }
             }
-            // print out details for each token
+
+            // Print out details for each token
             console.log(propertyName);
             console.log(this._hexToRgb(color));
             console.log(path);
@@ -196,24 +201,23 @@ export default class LottieTheming {
           }
         }
       }
+
       const json = JSON.stringify(this._jsonData);
 
-      // write JSON string to a file
-      fs.writeFile('modified_lottie.json', json, err => {
+      // Write JSON string to a file
+      fs.writeFile('modified_lottie.json', json, (err) => {
         if (err) {
           throw err;
         }
         console.log('JSON data is saved.');
       });
-      // print JSON object
-      // console.log(themeConfig);
     });
   }
 
   /**
    * if url is provided. get the json object
    */
-  private async _fromURL(url: string): Promise<Record<string, any>> {
+  private async _fromURL(url: string): Promise<Record<string, unknown>> {
     if (typeof url !== 'string') {
       throw new Error(`The url value must be a string`);
     }
@@ -239,10 +243,10 @@ export default class LottieTheming {
   /**
    * Validate lottie
    */
-  private _isLottie(json: Record<string, any>): boolean {
+  private _isLottie(json: Record<string, unknown>): boolean {
     const mandatory = ['v', 'ip', 'op', 'layers', 'fr', 'w', 'h'];
 
-    return mandatory.every(field => Object.prototype.hasOwnProperty.call(json, field));
+    return mandatory.every((field: string) => Object.prototype.hasOwnProperty.call(json, field));
   }
 
   /**
@@ -263,34 +267,35 @@ export default class LottieTheming {
     }
   }
 
-  private _setPathValue(object: any, path: string[], value: any): string {
+  private _setPathValue(object: unknown, path: string[], value: unknown): string {
     return path.reduce(
-      (original: any, current: any, i: number) =>
+      (original: unknown, current: unknown, i: number) =>
         (original[current] = path.length === ++i ? value : original[current] || {}),
       object,
     );
   }
 
   private _hexToRgb(hex: string) {
-    const result = /^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i.exec(hex);
+    const result = /^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/iu.exec(hex);
 
     if (result) {
       const r = parseInt(result[1], 16);
       const g = parseInt(result[2], 16);
       const b = parseInt(result[3], 16);
 
-      return [r / 255, g / 255, b / 255]; // return 23,14,45 -> reformat if needed
+      return [r / 255, g / 255, b / 255];
     }
 
     return null;
   }
 
-  /** object traversing algorithm  */
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  private *_traverse(o: any) {
+  /** Object traversing algorithm  */
+  private *_traverse(o: unknown) {
     const memory = new Set();
 
-    function* innerTraversal<T = any>(root: T): Generator<[string, T, string[], T], void, TraverseFilter | undefined> {
+    function* innerTraversal<T = unknown>(
+      root: T,
+    ): Generator<[string, T, string[], T], void, TraverseFilter | undefined> {
       const queue: Array<[T, string[]]> = [];
 
       queue.push([root, []]);
@@ -305,7 +310,7 @@ export default class LottieTheming {
         memory.add(o);
         // eslint-disable-next-line no-restricted-syntax
         for (const i of Object.keys(o)) {
-          const item: T = (o as any)[i];
+          const item: T = (o as unknown)[i];
           const itemPath: string[] = path.concat([i]);
           const filter = yield [i, item, itemPath, o];
 

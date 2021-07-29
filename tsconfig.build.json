@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+
+  "compilerOptions": {
+    // Base URL.
+    "baseUrl": ".",
+
+    // Allow a TypeScript project to be used with project references.
+    "composite": true,
+
+    // Path mapping
+    "paths": {
+      "@lottiefiles/lottie-theming": ["packages/lib/src"]
+    },
+
+    // Whether to allow including JS files.
+    "allowJs": true,
+
+    // Raise compiler errors about unreachable code.
+    "allowUnreachableCode": false,
+
+    // Whether to type check JS files.
+    "checkJs": true,
+
+    // Generate .d.ts files for every TypeScript or JavaScript file inside your project.
+    "declaration": true,
+
+    // Generate .d.ts declaration maps.
+    "declarationMap": true,
+
+    // Emit decorator metadata.
+    "emitDecoratorMetadata": true,
+
+    // Enables experimental support for decorators, which is in stage 2 of the TC39 standardization process..
+    "experimentalDecorators": true,
+
+    // Interoperability handling for ES6 modules and CommonJS/AMD/UMD.
+    "esModuleInterop": true,
+
+    // Cross platform file casing sensitivity.
+    "forceConsistentCasingInFileNames": true,
+
+    // Import helper functions from tslib.
+    "importHelpers": false,
+
+    // Emit more compliant, but verbose and less performant JavaScript for iteration.
+    "downlevelIteration": true,
+
+    // Save .tsbuildinfo files to allow for incremental compilation of projects.
+    "incremental": true,
+
+    // Ensure that each file can be safely transpiled without relying on other imports.
+    "isolatedModules": true,
+
+    // Controls how JSX constructs are emitted in JavaScript files.
+    "jsx": "react",
+
+    // Use CommonJS modules for node.
+    "module": "commonjs",
+
+    // Module resolution strategy.
+    "moduleResolution": "node",
+
+    // End of line sequence to be used when emitting files.
+    "newLine": "lf",
+
+    // Disable emitting file from a compilation.
+    "noEmit": false,
+
+    // Disable emitting files if any type checking errors are reported.
+    "noEmitOnError": true,
+
+    // Whether to allow fall through in switch statements.
+    "noFallthroughCasesInSwitch": true,
+
+    // Whether to allow implicit any types.
+    "noImplicitAny": true,
+
+    // Whether to allow implicit returns.
+    "noImplicitReturns": true,
+
+    // Whether implicit 'this' is allowed.
+    "noImplicitThis": true,
+
+    // Whether to force indexed signature property access to not use dot syntax.
+    "noPropertyAccessFromIndexSignature": true,
+
+    // Whether to allow unused local variables.
+    "noUnusedLocals": true,
+
+    // Whether to allow unused parameters.
+    "noUnusedParameters": true,
+
+    // Add undefined to any un-declared field when accessing via index signatures.
+    "noUncheckedIndexedAccess": true,
+
+    // Do not erase const enum declarations in generated code.
+    "preserveConstEnums": true,
+
+    // Whether to remove comments when converting to JS.
+    "removeComments": true,
+
+    // Whether to resolve .json files as a module.
+    "resolveJsonModule": true,
+
+    // Skip type checking of declaration files.
+    "skipLibCheck": true,
+
+    // Enable sourcemaps
+    "sourceMap": true,
+
+    // Strict mode: enable all the strict mode family of options.
+    "strict": true,
+
+    // Do not emit declarations for code that has an @internal annotation in its JSDoc comment.
+    "stripInternal": true,
+
+    // Target ES version.
+    "target": "ESNext"
+  },
+
+  "include": [
+    "**/**/*.ts",
+    "**/**/*.tsx",
+    "**/**/*.js",
+    "**/**/*.jsx",
+    "**/**/*.cjs",
+    "**/**/.eslintrc.cjs",
+    "**/**/*.mjs"
+  ],
+  "exclude": [
+    // Exclude tests and snapshots
+    "**/**/tests",
+    "**/**/__tests__",
+    "**/**/*.test.*",
+    "**/**/__snapshots__",
+
+    // Exclude builds
+    "**/**/dist",
+    "**/**/release"
+  ]
+}
