@@ -1,5 +1,5 @@
 {
-  "name": "lottie-theming-cli",
+  "name": "@lottiefiles/lottie-theming-cli",
   "version": "0.0.1",
   "main": "index.js",
   "author": "Alex Harper",
@@ -8,6 +8,14 @@
     "lftheme": "./index.js"
   },
   "dependencies": {
-    "@lottiefiles/lottie-theming": "*"
-  }  
+    "@lottiefiles/lottie-theming": "*",
+    "chalk": "^4.1.1",
+    "clear": "^0.1.0",
+    "clui": "^0.3.6",
+    "configstore": "^6.0.0",
+    "figlet": "^1.5.0",
+    "inquirer": "^8.1.2",
+    "minimist": "^1.2.5",
+    "yargs": "^17.0.1"
+  }
 }
