@@ -4,6 +4,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Package management
+package-lock.json
 node_modules
 .yarn/*
 !.yarn/cache
