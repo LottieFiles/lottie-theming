@@ -3,4 +3,7 @@
  * Copyright 2021 Design Barn Inc.
  */
 
-console.log('CLI');
+//
+const yargs = require('yargs');
+
+yargs.commandDir('commands').demandCommand();
