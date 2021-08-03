@@ -907,6 +907,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lottiefiles/lottie-theming-cli@workspace:packages/cli":
+  version: 0.0.0-use.local
+  resolution: "@lottiefiles/lottie-theming-cli@workspace:packages/cli"
+  dependencies:
+    "@lottiefiles/lottie-theming": "workspace:*"
+    "@types/yargs": ^17
+    yargs: 17.0.1
+  bin:
+    lftheme: ./index.js
+  languageName: unknown
+  linkType: soft
+
 "@lottiefiles/lottie-theming@workspace:*, @lottiefiles/lottie-theming@workspace:packages/lib":
   version: 0.0.0-use.local
   resolution: "@lottiefiles/lottie-theming@workspace:packages/lib"
@@ -929,19 +941,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lottiefiles/workflow-monorepo@workspace:.":
+"@lottiefiles/theming-monorepo@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@lottiefiles/workflow-monorepo@workspace:."
+  resolution: "@lottiefiles/theming-monorepo@workspace:."
   dependencies:
     "@changesets/cli": 2.16.0
     "@commitlint/cli": 13.1.0
     "@lottiefiles/commitlint-config": 1.0.0
     "@lottiefiles/eslint-plugin": 2.2.0
     "@lottiefiles/prettier-config": 2.0.0
-    "@types/eslint": ^7.28.0
+    "@types/eslint": 7.28.0
     "@types/jest": 26.0.24
     "@types/node": 16.4.7
-    "@types/prettier": ^2.3.2
+    "@types/prettier": 2.3.2
     eslint: 7.31.0
     eslint-plugin-only-warn: 1.0.3
     husky: 7.0.1
@@ -1086,7 +1098,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:^7.28.0":
+"@types/eslint@npm:7.28.0":
   version: 7.28.0
   resolution: "@types/eslint@npm:7.28.0"
   dependencies:
@@ -1187,7 +1199,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prettier@npm:^2.3.2":
+"@types/prettier@npm:2.3.2":
   version: 2.3.2
   resolution: "@types/prettier@npm:2.3.2"
   checksum: c4313e16650811f47b07a0fa7ac0742e966f61283a7292eb667fd4626d760bf3b7d896be3eaabb3354ad45fdbe3a340299b018dd3bcce1ff753d030a8cd2479c
@@ -1223,6 +1235,15 @@ __metadata:
   dependencies:
     "@types/yargs-parser": "*"
   checksum: 8e358aeb8f0c3758e59e2b8fcfdee5627ab2fe3d92f50f380503d966c7f33287be3322155516a50d27727fde1ad3878f48f60cd6648439126d4b0bbb1a1153ed
+  languageName: node
+  linkType: hard
+
+"@types/yargs@npm:^17":
+  version: 17.0.2
+  resolution: "@types/yargs@npm:17.0.2"
+  dependencies:
+    "@types/yargs-parser": "*"
+  checksum: 6f4600d3b786c0eb083782f59c9ed61bb4c204269b0a07819bb9e9b1fc29deaf4fe28abde7dca5fbf3cf851beca9458cbcf63ebd128ebfe83d31002d84337b31
   languageName: node
   linkType: hard
 
@@ -4626,16 +4647,6 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"lottie-theming-cli@workspace:packages/cli":
-  version: 0.0.0-use.local
-  resolution: "lottie-theming-cli@workspace:packages/cli"
-  dependencies:
-    "@lottiefiles/lottie-theming": "workspace:*"
-  bin:
-    lftheme: ./index.js
-  languageName: unknown
-  linkType: soft
-
 "lower-case@npm:^2.0.2":
   version: 2.0.2
   resolution: "lower-case@npm:2.0.2"
@@ -7114,6 +7125,21 @@ resolve@~1.19.0:
   languageName: node
   linkType: hard
 
+"yargs@npm:17.0.1, yargs@npm:^17.0.0":
+  version: 17.0.1
+  resolution: "yargs@npm:17.0.1"
+  dependencies:
+    cliui: ^7.0.2
+    escalade: ^3.1.1
+    get-caller-file: ^2.0.5
+    require-directory: ^2.1.1
+    string-width: ^4.2.0
+    y18n: ^5.0.5
+    yargs-parser: ^20.2.2
+  checksum: 4ffffa5a82647e5d07840b64bed88c365b901d3d4a4c51745dddb10d177902d85014026d7224aae18c42df9ca3f75a41c5aff556e5342e2f8ffc5177d149cd17
+  languageName: node
+  linkType: hard
+
 "yargs@npm:^15.1.0":
   version: 15.4.1
   resolution: "yargs@npm:15.4.1"
@@ -7130,21 +7156,6 @@ resolve@~1.19.0:
     y18n: ^4.0.0
     yargs-parser: ^18.1.2
   checksum: 40b974f508d8aed28598087720e086ecd32a5fd3e945e95ea4457da04ee9bdb8bdd17fd91acff36dc5b7f0595a735929c514c40c402416bbb87c03f6fb782373
-  languageName: node
-  linkType: hard
-
-"yargs@npm:^17.0.0":
-  version: 17.0.1
-  resolution: "yargs@npm:17.0.1"
-  dependencies:
-    cliui: ^7.0.2
-    escalade: ^3.1.1
-    get-caller-file: ^2.0.5
-    require-directory: ^2.1.1
-    string-width: ^4.2.0
-    y18n: ^5.0.5
-    yargs-parser: ^20.2.2
-  checksum: 4ffffa5a82647e5d07840b64bed88c365b901d3d4a4c51745dddb10d177902d85014026d7224aae18c42df9ca3f75a41c5aff556e5342e2f8ffc5177d149cd17
   languageName: node
   linkType: hard
 
