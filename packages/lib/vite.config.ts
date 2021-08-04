@@ -4,6 +4,9 @@
 
 import path from 'path';
 
+import commonjs from '@rollup/plugin-commonjs';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import typescript2 from 'rollup-plugin-typescript2';
 import { defineConfig } from 'vite';
 
 import * as pkg from './package.json';
@@ -27,6 +30,16 @@ module.exports = defineConfig({
         banner,
         sourcemap: true,
       },
+      plugins: [
+        nodeResolve(),
+        commonjs({
+          exclude: 'node_modules',
+          ignoreGlobal: true,
+        }),
+        typescript2({
+          useTsconfigDeclarationDir: true,
+        }),
+      ],
     },
   },
 });

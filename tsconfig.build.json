@@ -56,7 +56,7 @@
     "jsx": "react",
 
     // Use CommonJS modules for node.
-    "module": "commonjs",
+    "module": "ESNext",
 
     // Module resolution strategy.
     "moduleResolution": "node",

@@ -34,5 +34,10 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "resolutions": {
+    "@lottiefiles/workflow-monorepo": "portal:/Users/karamalie/Sites/lottie-theming",
+    "@lottiefiles/lottie-theming": "portal:/Users/karamalie/Sites/lottie-theming/packages/lib",
+    "@lottiefiles/lottie-js": "portal:../lottie-js"
+  }
 }
