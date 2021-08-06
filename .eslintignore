@@ -13,6 +13,7 @@ release
 # Testing
 __tests__
 coverage
+test
 
 # IDE related
 .idea

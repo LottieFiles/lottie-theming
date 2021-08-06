@@ -12,7 +12,7 @@ import { Animation } from '@lottiefiles/lottie-js';
 //   'reject' = 'reject',
 // }
 
-export class LottieTheming {
+export default class LottieTheming {
   // private _jsonData: Record<string, unknown> = {};
 
   // public get jsonData(): Record<string, unknown> {

@@ -4,9 +4,6 @@
 
 import path from 'path';
 
-import commonjs from '@rollup/plugin-commonjs';
-import nodeResolve from '@rollup/plugin-node-resolve';
-import typescript2 from 'rollup-plugin-typescript2';
 import { defineConfig } from 'vite';
 
 import * as pkg from './package.json';
@@ -15,13 +12,14 @@ import * as pkg from './package.json';
 const pkgName = pkg.name.replace(/^@.*\//u, '');
 
 const banner = `/*!
- * ${pkg.name} v${pkg.version}
- */`;
+  * ${pkg.name} v${pkg.version}
+  */`;
 
 module.exports = defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: path.resolve(__dirname, 'src/lottie-theming.ts'),
+      formats: ['es', 'cjs', 'umd', 'iife'],
       name: 'LottieTheming',
       fileName: (format: string) => `${pkgName}.${format}.js`,
     },
@@ -30,16 +28,6 @@ module.exports = defineConfig({
         banner,
         sourcemap: true,
       },
-      plugins: [
-        nodeResolve(),
-        commonjs({
-          exclude: 'node_modules',
-          ignoreGlobal: true,
-        }),
-        typescript2({
-          useTsconfigDeclarationDir: true,
-        }),
-      ],
     },
   },
 });

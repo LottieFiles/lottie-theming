@@ -7,7 +7,8 @@
     "theme",
     "theming"
   ],
-  "main": "./dist/lottie-theming.umd.js",
+  "browser": "./dist/lottie-theming.umd.js",
+  "main": "./dist/lottie-theming.cjs.js",
   "module": "./dist/lottie-theming.es.js",
   "exports": {
     ".": {
@@ -33,22 +34,53 @@
   "scripts": {
     "dev": "vite build --watch",
     "build": "vite build",
-    "clean": "shx rm -rf dist"
+    "clean": "shx rm -rf dist",
+    "test": "jest"
   },
   "devDependencies": {
+    "@babel/core": "7.15.0",
     "@rollup/plugin-commonjs": "20.0.0",
     "@rollup/plugin-node-resolve": "13.0.4",
+    "@rollup/plugin-strip": "2.1.0",
+    "@rollup/plugin-typescript": "8.2.5",
+    "@testing-library/dom": "8.1.0",
+    "@testing-library/jest-dom": "5.14.1",
+    "@testing-library/react": "12.0.0",
+    "@testing-library/user-event": "13.2.1",
+    "@types/babel__core": "^7",
+    "@types/jest": "26.0.24",
     "@types/node": "^16.4.7",
+    "@types/react": "^17",
+    "@types/testing-library__jest-dom": "^5",
+    "@vue/test-utils": "next",
+    "babel-eslint": "10.1.0",
+    "babel-jest": "27.0.6",
+    "babel-preset-react-app": "10.0.0",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "27.0.6",
+    "jest-circus": "27.0.6",
+    "jest-scss-transform": "1.0.1",
+    "jest-watch-typeahead": "0.6.4",
+    "react": "17.0.2",
+    "rollup-plugin-dts": "3.0.2",
+    "rollup-plugin-esbuild": "4.5.0",
+    "rollup-plugin-filesize": "9.1.1",
     "rollup-plugin-typescript2": "0.30.0",
     "shx": "0.3.3",
+    "ts-jest": "27.0.4",
     "typescript": "4.3.5",
-    "vite": "2.4.4"
+    "vite": "2.4.4",
+    "vue-jest": "next"
   },
   "files": [
     "dist/"
   ],
   "dependencies": {
-    "@lottiefiles/lottie-js": "/Users/karamalie/Sites/lottie-js",
-    "@lottiefiles/lottie-theming": "workspace:*"
+    "@lottiefiles/lottie-js": "/Users/karamalie/Sites/lottie-js"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest-setup.ts"
+    ]
   }
 }
