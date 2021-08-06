@@ -16,16 +16,18 @@ const banner = `/*!
  */`;
 
 module.exports = defineConfig({
+  resolve: {
+    mainFields: ['main'],
+  },
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'LottieTheming-CLI',
+      name: 'LottieThemingCli',
       fileName: (format: string) => `${pkgName}.${format}.js`,
     },
     rollupOptions: {
       output: {
         banner,
-        sourcemap: true,
       },
     },
   },

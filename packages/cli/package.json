@@ -1,13 +1,29 @@
 {
   "name": "@lottiefiles/lottie-theming-cli",
   "version": "0.0.1",
-  "main": "./dist/lottie-theming-cli.umd.js",
-  "module": "./dist/lottie-theming-cli.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/lottie-theming-cli.umd.js",
-      "require": "./dist/lottie-theming-cli.es.js"
-    }
+  "description": "Lottie theming CLI",
+  "keywords": [
+    "lottie",
+    "theme",
+    "theming",
+    "cli"
+  ],
+  "main": "./src/index.ts",
+  "publishConfig": {
+    "access": "public",
+    "bin": {
+      "lottie-theming": "dist/lottie-theming-cli.es.js"
+    },
+    "main": "./dist/lottie-theming-cli.es.js",
+    "types": "dist/lottie-theming-cli.d.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LottieFiles/lottie-theming.git"
+  },
+  "homepage": "https://github.com/LottieFiles/lottie-theming#readme",
+  "bugs": {
+    "url": "https://github.com/LottieFiles/lottie-theming/issues"
   },
   "author": "Alex Harper",
   "license": "MIT",

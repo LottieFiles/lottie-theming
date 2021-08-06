@@ -7,13 +7,18 @@
     "theme",
     "theming"
   ],
-  "main": "./dist/lottie-theming.umd.js",
-  "module": "./dist/lottie-theming.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/lottie-theming.umd.js",
-      "require": "./dist/lottie-theming.es.js"
-    }
+  "main": "./src/index.ts",
+  "publishConfig": {
+    "access": "public",
+    "main": "./dist/lottie-theming.umd.js",
+    "module": "./dist/lottie-theming.es.js",
+    "exports": {
+      ".": {
+        "import": "./dist/lottie-theming.umd.js",
+        "require": "./dist/lottie-theming.es.js"
+      }
+    },
+    "types": "dist/lottie-theming.d.ts"
   },
   "repository": {
     "type": "git",

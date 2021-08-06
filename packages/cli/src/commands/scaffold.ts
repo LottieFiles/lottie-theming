@@ -2,9 +2,9 @@
  * Copyright 2021 Design Barn Inc.
  */
 
-const fs = require('fs');
+import fs from 'fs';
 
-const LottieTheming = require('@lottiefiles/lottie-theming');
+import { LottieTheming } from '@lottiefiles/lottie-theming';
 
 module.exports.command = 'scaffold';
 module.exports.describe = 'scaffold a theme file';
@@ -17,7 +17,7 @@ module.exports.builder = {
   },
 };
 
-module.exports.handler = async function handler(argv) {
+module.exports.handler = async function handler(argv): Promise<void> {
   const lottiePath = argv.lottie;
   const themePath = argv.themePath;
 
@@ -34,7 +34,7 @@ module.exports.handler = async function handler(argv) {
   const data = JSON.stringify(themeModel);
 
   // write JSON string to a file
-  fs.promises.writeFile(argv.themePath, data, (err) => {
+  await fs.promises.writeFile(argv.themePath, data, (err) => {
     if (err) {
       throw err;
     }

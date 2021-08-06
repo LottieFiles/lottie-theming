@@ -918,6 +918,8 @@ __metadata:
     typescript: 4.3.5
     vite: 2.4.4
     yargs: 17.1.0
+  bin:
+    lottie-theming: dist/index.js
   languageName: unknown
   linkType: soft
 
