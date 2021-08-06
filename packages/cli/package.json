@@ -1,20 +1,36 @@
 {
   "name": "@lottiefiles/lottie-theming-cli",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "./dist/lottie-theming-cli.umd.js",
+  "module": "./dist/lottie-theming-cli.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/lottie-theming-cli.umd.js",
+      "require": "./dist/lottie-theming-cli.es.js"
+    }
+  },
   "author": "Alex Harper",
   "license": "MIT",
-  "bin": {
-    "lftheme": "./index.js"
-  },
-  "dependencies": {
-    "@lottiefiles/lottie-theming": "workspace:*",
-    "yargs": "17.0.1"
-  },
   "engines": {
     "node": ">=11.14.0"
   },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "clean": "shx rm -rf dist"
+  },
+  "files": [
+    "dist/"
+  ],
+  "dependencies": {
+    "@lottiefiles/lottie-theming": "workspace:*",
+    "yargs": "17.1.0"
+  },
   "devDependencies": {
-    "@types/yargs": "^17"
+    "@types/node": "^16.4.7",
+    "@types/yargs": "17.0.2",
+    "shx": "0.3.3",
+    "typescript": "4.3.5",
+    "vite": "2.4.4"
   }
 }
