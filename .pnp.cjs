@@ -2101,23 +2101,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/babel__core"
           ],
           "linkType": "HARD",
-        }],
-        ["virtual:31890a7c6f1fd94652c69047ff93111c2b7fc09f2db8e3becbbfad94814604e2795c87ddcdfcdd5227a6eb6768316d2eba58b8a29b355e1211a30153863dcd56#npm:7.15.0", {
-          "packageLocation": "./.yarn/__virtual__/@babel-plugin-transform-modules-commonjs-virtual-400765f6ad/0/cache/@babel-plugin-transform-modules-commonjs-npm-7.15.0-bfc9e9d1f2-ef55fb736c.zip/node_modules/@babel/plugin-transform-modules-commonjs/",
-          "packageDependencies": [
-            ["@babel/plugin-transform-modules-commonjs", "virtual:31890a7c6f1fd94652c69047ff93111c2b7fc09f2db8e3becbbfad94814604e2795c87ddcdfcdd5227a6eb6768316d2eba58b8a29b355e1211a30153863dcd56#npm:7.15.0"],
-            ["@babel/core", "npm:7.15.0"],
-            ["@babel/helper-module-transforms", "npm:7.15.0"],
-            ["@babel/helper-plugin-utils", "npm:7.14.5"],
-            ["@babel/helper-simple-access", "npm:7.14.8"],
-            ["@types/babel__core", "npm:7.1.15"],
-            ["babel-plugin-dynamic-import-node", "npm:2.3.3"]
-          ],
-          "packagePeers": [
-            "@babel/core",
-            "@types/babel__core"
-          ],
-          "linkType": "HARD",
         }]
       ]],
       ["@babel/plugin-transform-modules-systemjs", [
@@ -4245,17 +4228,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         ["portal:/Users/karamalie/Sites/lottie-theming/packages/lib::locator=%40lottiefiles%2Fworkflow-monorepo%40workspace%3A.", {
           "packageLocation": "./packages/lib/",
           "packageDependencies": [
-            ["@lottiefiles/lottie-js", "portal:../lottie-js::locator=%40lottiefiles%2Fworkflow-monorepo%40workspace%3A."],
-            ["@lottiefiles/lottie-theming", "portal:/Users/karamalie/Sites/lottie-theming/packages/lib::locator=%40lottiefiles%2Fworkflow-monorepo%40workspace%3A."]
+            ["@lottiefiles/lottie-theming", "portal:/Users/karamalie/Sites/lottie-theming/packages/lib::locator=%40lottiefiles%2Fworkflow-monorepo%40workspace%3A."],
+            ["@lottiefiles/lottie-js", "portal:../lottie-js::locator=%40lottiefiles%2Fworkflow-monorepo%40workspace%3A."]
           ],
           "linkType": "SOFT",
         }],
         ["workspace:packages/lib", {
           "packageLocation": "./packages/lib/",
           "packageDependencies": [
+            ["@lottiefiles/lottie-theming", "workspace:packages/lib"],
             ["@babel/core", "npm:7.15.0"],
             ["@lottiefiles/lottie-js", "portal:../lottie-js::locator=%40lottiefiles%2Fworkflow-monorepo%40workspace%3A."],
-            ["@lottiefiles/lottie-theming", "portal:/Users/karamalie/Sites/lottie-theming/packages/lib::locator=%40lottiefiles%2Fworkflow-monorepo%40workspace%3A."],
             ["@rollup/plugin-commonjs", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:20.0.0"],
             ["@rollup/plugin-node-resolve", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:13.0.4"],
             ["@rollup/plugin-strip", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:2.1.0"],
@@ -4286,8 +4269,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["shx", "npm:0.3.3"],
             ["ts-jest", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:27.0.4"],
             ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"],
-            ["vite", "npm:2.4.4"],
-            ["vue-jest", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:5.0.0-alpha.10"]
+            ["vite", "npm:2.4.4"]
           ],
           "linkType": "SOFT",
         }]
@@ -5054,24 +5036,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-stack-utils-npm-2.0.1-867718ab70-205fdbe332.zip/node_modules/@types/stack-utils/",
           "packageDependencies": [
             ["@types/stack-utils", "npm:2.0.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@types/strip-bom", [
-        ["npm:3.0.0", {
-          "packageLocation": "./.yarn/cache/@types-strip-bom-npm-3.0.0-495ea2cef5-cb165d0c2c.zip/node_modules/@types/strip-bom/",
-          "packageDependencies": [
-            ["@types/strip-bom", "npm:3.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@types/strip-json-comments", [
-        ["npm:0.0.30", {
-          "packageLocation": "./.yarn/cache/@types-strip-json-comments-npm-0.0.30-4d685379c3-829ddd3896.zip/node_modules/@types/strip-json-comments/",
-          "packageDependencies": [
-            ["@types/strip-json-comments", "npm:0.0.30"]
           ],
           "linkType": "HARD",
         }]
@@ -7046,17 +7010,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["css", [
-        ["npm:2.2.4", {
-          "packageLocation": "./.yarn/cache/css-npm-2.2.4-2a363d6a5d-a35d483c5c.zip/node_modules/css/",
-          "packageDependencies": [
-            ["css", "npm:2.2.4"],
-            ["inherits", "npm:2.0.4"],
-            ["source-map", "npm:0.6.1"],
-            ["source-map-resolve", "npm:0.5.3"],
-            ["urix", "npm:0.1.0"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:3.0.0", {
           "packageLocation": "./.yarn/cache/css-npm-3.0.0-ef426b63b3-4273ac816d.zip/node_modules/css/",
           "packageDependencies": [
@@ -8693,16 +8646,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/extract-files-npm-9.0.0-6ee13e6aab-c31781d090.zip/node_modules/extract-files/",
           "packageDependencies": [
             ["extract-files", "npm:9.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["extract-from-css", [
-        ["npm:0.4.4", {
-          "packageLocation": "./.yarn/cache/extract-from-css-npm-0.4.4-52f32c4494-f3628d14a7.zip/node_modules/extract-from-css/",
-          "packageDependencies": [
-            ["extract-from-css", "npm:0.4.4"],
-            ["css", "npm:2.2.4"]
           ],
           "linkType": "HARD",
         }]
@@ -13225,15 +13168,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["resolve-url", [
-        ["npm:0.2.1", {
-          "packageLocation": "./.yarn/cache/resolve-url-npm-0.2.1-39edb8f908-7b7035b9ed.zip/node_modules/resolve-url/",
-          "packageDependencies": [
-            ["resolve-url", "npm:0.2.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["restore-cursor", [
         ["npm:3.1.0", {
           "packageLocation": "./.yarn/cache/restore-cursor-npm-3.1.0-52c5a4c98f-f877dd8741.zip/node_modules/restore-cursor/",
@@ -13664,13 +13598,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["source-map", [
-        ["npm:0.5.6", {
-          "packageLocation": "./.yarn/cache/source-map-npm-0.5.6-ac261b6171-390b3f5165.zip/node_modules/source-map/",
-          "packageDependencies": [
-            ["source-map", "npm:0.5.6"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:0.5.7", {
           "packageLocation": "./.yarn/cache/source-map-npm-0.5.7-7c3f035429-5dc2043b93.zip/node_modules/source-map/",
           "packageDependencies": [
@@ -13703,18 +13630,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["source-map-resolve", [
-        ["npm:0.5.3", {
-          "packageLocation": "./.yarn/cache/source-map-resolve-npm-0.5.3-6502ae65ba-c73fa44ac0.zip/node_modules/source-map-resolve/",
-          "packageDependencies": [
-            ["source-map-resolve", "npm:0.5.3"],
-            ["atob", "npm:2.1.2"],
-            ["decode-uri-component", "npm:0.2.0"],
-            ["resolve-url", "npm:0.2.1"],
-            ["source-map-url", "npm:0.4.1"],
-            ["urix", "npm:0.1.0"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:0.6.0", {
           "packageLocation": "./.yarn/cache/source-map-resolve-npm-0.6.0-6e67c9e55f-fe503b9e5d.zip/node_modules/source-map-resolve/",
           "packageDependencies": [
@@ -13732,15 +13647,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["source-map-support", "npm:0.5.19"],
             ["buffer-from", "npm:1.1.1"],
             ["source-map", "npm:0.6.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["source-map-url", [
-        ["npm:0.4.1", {
-          "packageLocation": "./.yarn/cache/source-map-url-npm-0.4.1-747a1f6eba-64c5c2c77a.zip/node_modules/source-map-url/",
-          "packageDependencies": [
-            ["source-map-url", "npm:0.4.1"]
           ],
           "linkType": "HARD",
         }]
@@ -14090,13 +13996,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["strip-json-comments", [
-        ["npm:2.0.1", {
-          "packageLocation": "./.yarn/cache/strip-json-comments-npm-2.0.1-e7883b2d04-1074ccb632.zip/node_modules/strip-json-comments/",
-          "packageDependencies": [
-            ["strip-json-comments", "npm:2.0.1"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:3.1.1", {
           "packageLocation": "./.yarn/cache/strip-json-comments-npm-3.1.1-dcb2324823-492f73e272.zip/node_modules/strip-json-comments/",
           "packageDependencies": [
@@ -14485,19 +14384,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["tsconfig", [
-        ["npm:7.0.0", {
-          "packageLocation": "./.yarn/cache/tsconfig-npm-7.0.0-27f79fe1ca-8bce05e93c.zip/node_modules/tsconfig/",
-          "packageDependencies": [
-            ["tsconfig", "npm:7.0.0"],
-            ["@types/strip-bom", "npm:3.0.0"],
-            ["@types/strip-json-comments", "npm:0.0.30"],
-            ["strip-bom", "npm:3.0.0"],
-            ["strip-json-comments", "npm:2.0.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["tsconfig-paths", [
         ["npm:3.10.1", {
           "packageLocation": "./.yarn/cache/tsconfig-paths-npm-3.10.1-74e5e9a4f2-014ec86927.zip/node_modules/tsconfig-paths/",
@@ -14873,15 +14759,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["urix", [
-        ["npm:0.1.0", {
-          "packageLocation": "./.yarn/cache/urix-npm-0.1.0-bd5e55a13a-4c076ecfbf.zip/node_modules/urix/",
-          "packageDependencies": [
-            ["urix", "npm:0.1.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["util-deprecate", [
         ["npm:1.0.2", {
           "packageLocation": "./.yarn/cache/util-deprecate-npm-1.0.2-e3fe1a219c-474acf1146.zip/node_modules/util-deprecate/",
@@ -14982,54 +14859,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss", "npm:8.3.6"],
             ["resolve", "patch:resolve@npm%3A1.20.0#~builtin<compat/resolve>::version=1.20.0&hash=00b1ff"],
             ["rollup", "npm:2.55.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["vue-jest", [
-        ["npm:5.0.0-alpha.10", {
-          "packageLocation": "./.yarn/cache/vue-jest-npm-5.0.0-alpha.10-08629460cb-88f7959ebf.zip/node_modules/vue-jest/",
-          "packageDependencies": [
-            ["vue-jest", "npm:5.0.0-alpha.10"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:5.0.0-alpha.10", {
-          "packageLocation": "./.yarn/__virtual__/vue-jest-virtual-31890a7c6f/0/cache/vue-jest-npm-5.0.0-alpha.10-08629460cb-88f7959ebf.zip/node_modules/vue-jest/",
-          "packageDependencies": [
-            ["vue-jest", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:5.0.0-alpha.10"],
-            ["@babel/core", "npm:7.15.0"],
-            ["@babel/plugin-transform-modules-commonjs", "virtual:31890a7c6f1fd94652c69047ff93111c2b7fc09f2db8e3becbbfad94814604e2795c87ddcdfcdd5227a6eb6768316d2eba58b8a29b355e1211a30153863dcd56#npm:7.15.0"],
-            ["@types/babel-jest", null],
-            ["@types/babel__core", "npm:7.1.15"],
-            ["@types/jest", "npm:26.0.24"],
-            ["@types/ts-jest", null],
-            ["@types/typescript", null],
-            ["@types/vue", null],
-            ["babel-jest", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:27.0.6"],
-            ["chalk", "npm:2.4.2"],
-            ["convert-source-map", "npm:1.8.0"],
-            ["extract-from-css", "npm:0.4.4"],
-            ["jest", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:27.0.6"],
-            ["source-map", "npm:0.5.6"],
-            ["ts-jest", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:27.0.4"],
-            ["tsconfig", "npm:7.0.0"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"],
-            ["vue", null]
-          ],
-          "packagePeers": [
-            "@babel/core",
-            "@types/babel-jest",
-            "@types/babel__core",
-            "@types/jest",
-            "@types/ts-jest",
-            "@types/typescript",
-            "@types/vue",
-            "babel-jest",
-            "jest",
-            "ts-jest",
-            "typescript",
-            "vue"
           ],
           "linkType": "HARD",
         }]
