@@ -29,6 +29,7 @@ module.exports = defineConfig({
       output: {
         banner,
       },
+      external: ['fs/promises'],
     },
   },
 });
