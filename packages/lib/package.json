@@ -9,7 +9,7 @@
   ],
   "main": "./src/index.ts",
   "publishConfig": {
-    "access": "public",
+    "access": "restricted",
     "main": "./dist/lottie-theming.umd.js",
     "module": "./dist/lottie-theming.es.js",
     "exports": {
