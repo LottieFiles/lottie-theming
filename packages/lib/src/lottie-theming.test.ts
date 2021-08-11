@@ -1,4 +1,4 @@
-const LottieTheming = require('../dist/lottie-theming.cjs');
+import { LottieTheming } from '../dist/lottie-theming.es';
 
 test('Header contains correct text', () => {
   const theming = new LottieTheming();

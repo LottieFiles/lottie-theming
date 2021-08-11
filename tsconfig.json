@@ -4,5 +4,5 @@
   "compilerOptions": {},
 
   "include": ["**/**/*.ts", "**.mjs", "**.cjs"],
-  "exclude": ["packages/*/dist", "packages/*/test"]
+  "exclude": ["packages/*/dist", "**/**/*.test.ts"]
 }

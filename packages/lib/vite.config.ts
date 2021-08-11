@@ -18,7 +18,7 @@ const banner = `/*!
 module.exports = defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/lottie-theming.ts'),
+      entry: path.resolve(__dirname, 'src/index.ts'),
       formats: ['es', 'cjs', 'umd', 'iife'],
       name: 'LottieTheming',
       fileName: (format: string) => `${pkgName}.${format}.js`,

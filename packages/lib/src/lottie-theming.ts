@@ -12,7 +12,7 @@ import { Animation } from '@lottiefiles/lottie-js';
 //   'reject' = 'reject',
 // }
 
-export default class LottieTheming {
+export class LottieTheming {
   // private _jsonData: Record<string, unknown> = {};
 
   // public get jsonData(): Record<string, unknown> {
@@ -29,7 +29,7 @@ export default class LottieTheming {
   public async init(src: string): Promise<Animation> {
     const anim = await Animation.fromURL(src);
 
-    const colors = anim.colorsVerbose;
+    const colors = anim.colors;
 
     console.log(colors);
 
