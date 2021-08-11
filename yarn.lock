@@ -1086,9 +1086,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@babel/plugin-transform-property-literals@npm:^7.12.1":
   version: 7.14.5
   resolution: "@babel/plugin-transform-property-literals@npm:7.14.5"
+=======
+"@lottiefiles/lottie-theming-cli@workspace:packages/cli":
+  version: 0.0.0-use.local
+  resolution: "@lottiefiles/lottie-theming-cli@workspace:packages/cli"
+  dependencies:
+    "@lottiefiles/lottie-theming": "workspace:*"
+    "@types/node": ^16.4.7
+    "@types/yargs": 17.0.2
+    shx: 0.3.3
+    typescript: 4.3.5
+    vite: 2.4.4
+    yargs: 17.1.0
+  bin:
+    lottie-theming: dist/index.js
+  languageName: unknown
+  linkType: soft
+
+"@lottiefiles/lottie-theming@workspace:*, @lottiefiles/lottie-theming@workspace:packages/lib":
+  version: 0.0.0-use.local
+  resolution: "@lottiefiles/lottie-theming@workspace:packages/lib"
+>>>>>>> origin/feature/add-cli
   dependencies:
     "@babel/helper-plugin-utils": ^7.14.5
   peerDependencies:
@@ -1097,6 +1119,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@babel/plugin-transform-react-display-name@npm:7.12.1":
   version: 7.12.1
   resolution: "@babel/plugin-transform-react-display-name@npm:7.12.1"
@@ -1107,6 +1130,30 @@ __metadata:
   checksum: 53a4cc0b0ae0588c6a7d8745b5aedb04fd2e5848632f5bad2d4d864bcd3be8ffe67ba17b351676dbd807cfecaeb5c6f7cbf292eab3c47682d22bd1594479c8a2
   languageName: node
   linkType: hard
+=======
+"@lottiefiles/theming-monorepo@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@lottiefiles/theming-monorepo@workspace:."
+  dependencies:
+    "@changesets/cli": 2.16.0
+    "@commitlint/cli": 13.1.0
+    "@lottiefiles/commitlint-config": 1.0.0
+    "@lottiefiles/eslint-plugin": 2.2.0
+    "@lottiefiles/prettier-config": 2.0.0
+    "@types/eslint": 7.28.0
+    "@types/jest": 26.0.24
+    "@types/node": 16.4.7
+    "@types/prettier": 2.3.2
+    eslint: 7.31.0
+    eslint-plugin-only-warn: 1.0.3
+    husky: 7.0.1
+    lint-staged: 11.1.1
+    prettier: 2.3.2
+    prettier-plugin-package: 1.3.0
+    typescript: 4.3.5
+  languageName: unknown
+  linkType: soft
+>>>>>>> origin/feature/add-cli
 
 "@babel/plugin-transform-react-display-name@npm:^7.12.1":
   version: 7.15.1
@@ -1271,9 +1318,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@babel/plugin-transform-typescript@npm:^7.12.1":
   version: 7.15.0
   resolution: "@babel/plugin-transform-typescript@npm:7.15.0"
+=======
+"@types/eslint@npm:7.28.0":
+  version: 7.28.0
+  resolution: "@types/eslint@npm:7.28.0"
+>>>>>>> origin/feature/add-cli
   dependencies:
     "@babel/helper-create-class-features-plugin": ^7.15.0
     "@babel/helper-plugin-utils": ^7.14.5
@@ -4244,10 +4297,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "callsites@npm:^3.0.0":
   version: 3.1.0
   resolution: "callsites@npm:3.1.0"
   checksum: 072d17b6abb459c2ba96598918b55868af677154bec7e73d222ef95a8fdb9bbf7dae96a8421085cdad8cd190d86653b5b6dc55a4484f2e5b2e27d5e0c3fc15b3
+=======
+"@types/prettier@npm:2.3.2":
+  version: 2.3.2
+  resolution: "@types/prettier@npm:2.3.2"
+  checksum: c4313e16650811f47b07a0fa7ac0742e966f61283a7292eb667fd4626d760bf3b7d896be3eaabb3354ad45fdbe3a340299b018dd3bcce1ff753d030a8cd2479c
+>>>>>>> origin/feature/add-cli
   languageName: node
   linkType: hard
 
@@ -4509,10 +4569,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "color-name@npm:~1.1.4":
   version: 1.1.4
   resolution: "color-name@npm:1.1.4"
   checksum: b0445859521eb4021cd0fb0cc1a75cecf67fceecae89b63f62b201cca8d345baf8b952c966862a9d9a2632987d4f6581f0ec8d957dfacece86f0a7919316f610
+=======
+"@types/yargs@npm:17.0.2":
+  version: 17.0.2
+  resolution: "@types/yargs@npm:17.0.2"
+  dependencies:
+    "@types/yargs-parser": "*"
+  checksum: 6f4600d3b786c0eb083782f59c9ed61bb4c204269b0a07819bb9e9b1fc29deaf4fe28abde7dca5fbf3cf851beca9458cbcf63ebd128ebfe83d31002d84337b31
+  languageName: node
+  linkType: hard
+
+"@types/yargs@npm:^15.0.0":
+  version: 15.0.14
+  resolution: "@types/yargs@npm:15.0.14"
+  dependencies:
+    "@types/yargs-parser": "*"
+  checksum: 8e358aeb8f0c3758e59e2b8fcfdee5627ab2fe3d92f50f380503d966c7f33287be3322155516a50d27727fde1ad3878f48f60cd6648439126d4b0bbb1a1153ed
+>>>>>>> origin/feature/add-cli
   languageName: node
   linkType: hard
 
@@ -8218,16 +8296,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lottie-theming-cli@workspace:packages/cli":
-  version: 0.0.0-use.local
-  resolution: "lottie-theming-cli@workspace:packages/cli"
-  dependencies:
-    "@lottiefiles/lottie-theming": "workspace:*"
-  bin:
-    lftheme: ./index.js
-  languageName: unknown
-  linkType: soft
-
 "lower-case@npm:^2.0.2":
   version: 2.0.2
   resolution: "lower-case@npm:2.0.2"
@@ -11718,6 +11786,31 @@ resolve@~1.19.0:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"yargs-parser@npm:^20.2.2, yargs-parser@npm:^20.2.3":
+  version: 20.2.9
+  resolution: "yargs-parser@npm:20.2.9"
+  checksum: 8bb69015f2b0ff9e17b2c8e6bfe224ab463dd00ca211eece72a4cd8a906224d2703fb8a326d36fdd0e68701e201b2a60ed7cf81ce0fd9b3799f9fe7745977ae3
+  languageName: node
+  linkType: hard
+
+"yargs@npm:17.1.0":
+  version: 17.1.0
+  resolution: "yargs@npm:17.1.0"
+  dependencies:
+    cliui: ^7.0.2
+    escalade: ^3.1.1
+    get-caller-file: ^2.0.5
+    require-directory: ^2.1.1
+    string-width: ^4.2.0
+    y18n: ^5.0.5
+    yargs-parser: ^20.2.2
+  checksum: 259d496db8fd499debfb0e8676c1d4c0a8259c730ca31a4ca1047841c407aa4099f5f008c16b1adcf04b6015a4aa6c758a59d583aab9df89a288c75ce8a621e1
+  languageName: node
+  linkType: hard
+
+>>>>>>> origin/feature/add-cli
 "yargs@npm:^15.1.0":
   version: 15.4.1
   resolution: "yargs@npm:15.4.1"

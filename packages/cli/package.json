@@ -1,13 +1,52 @@
 {
-  "name": "lottie-theming-cli",
+  "name": "@lottiefiles/lottie-theming-cli",
   "version": "0.0.1",
-  "main": "index.js",
+  "description": "Lottie theming CLI",
+  "keywords": [
+    "lottie",
+    "theme",
+    "theming",
+    "cli"
+  ],
+  "main": "./src/index.ts",
+  "publishConfig": {
+    "access": "public",
+    "bin": {
+      "lottie-theming": "dist/lottie-theming-cli.es.js"
+    },
+    "main": "./dist/lottie-theming-cli.es.js",
+    "types": "dist/lottie-theming-cli.d.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LottieFiles/lottie-theming.git"
+  },
+  "homepage": "https://github.com/LottieFiles/lottie-theming#readme",
+  "bugs": {
+    "url": "https://github.com/LottieFiles/lottie-theming/issues"
+  },
   "author": "Alex Harper",
   "license": "MIT",
-  "bin": {
-    "lftheme": "./index.js"
+  "engines": {
+    "node": ">=11.14.0"
   },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "clean": "shx rm -rf dist"
+  },
+  "files": [
+    "dist/"
+  ],
   "dependencies": {
-    "@lottiefiles/lottie-theming": "workspace:*"
+    "@lottiefiles/lottie-theming": "workspace:*",
+    "yargs": "17.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.4.7",
+    "@types/yargs": "17.0.2",
+    "shx": "0.3.3",
+    "typescript": "4.3.5",
+    "vite": "2.4.4"
   }
 }

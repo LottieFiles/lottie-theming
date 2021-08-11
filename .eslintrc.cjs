@@ -15,7 +15,6 @@ module.exports = {
     // Profiles:
     'plugin:@lottiefiles/nodejs',
     'plugin:@lottiefiles/jest',
-
     // 'plugin:@lottiefiles/typescript-typechecking',
 
     // Prettier, this must go last
