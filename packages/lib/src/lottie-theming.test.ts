@@ -1,4 +1,4 @@
-import { LottieTheming } from '../dist/lottie-theming.es';
+import { LottieTheming } from './lottie-theming';
 
 test('Header contains correct text', () => {
   const theming = new LottieTheming();

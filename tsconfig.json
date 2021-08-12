@@ -3,6 +3,6 @@
 
   "compilerOptions": {},
 
-  "include": ["**/**/*.ts", "**.mjs", "**.cjs"],
-  "exclude": ["packages/*/dist", "**/**/*.test.ts"]
+  "include": ["**/**/*.ts", "**.mjs", "**.cjs", "**/**/*.test.ts"],
+  "exclude": ["packages/*/dist"]
 }
