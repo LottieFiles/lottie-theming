@@ -29,7 +29,7 @@ export class LottieTheming {
   public async init(src: string): Promise<Animation> {
     const anim = await Animation.fromURL(src);
 
-    const colors = anim.colors;
+    const colors = anim.colorsVerbose;
 
     console.log(colors);
 
