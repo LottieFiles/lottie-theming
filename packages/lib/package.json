@@ -29,7 +29,7 @@
     "name": "Karam Ali"
   },
   "engines": {
-    "node": "10.x"
+    "node": ">=10.x"
   },
   "scripts": {
     "dev": "vite build --watch",

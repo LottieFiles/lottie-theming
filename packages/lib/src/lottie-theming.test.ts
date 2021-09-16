@@ -26,7 +26,5 @@ test('Header contains correct text', async () => {
   console.dir(themeConfig, { depth: null });
 
   // press button 1. load default Theme
-  theming.applyTheme(themeConfig, 'defaultTheme');
-
-  // press button 2. load dark theme
+  theming.applyTheme(themeConfig, 'testPalette');
 });

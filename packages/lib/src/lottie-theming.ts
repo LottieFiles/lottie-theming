@@ -8,10 +8,12 @@ export class LottieTheming {
   /**
    * initialise
    */
+  public animation: Animation = new Animation();
+
   public colors: Record<string, any> = {};
 
   // refer to ../test/sample-config to see the what the themeConfig structure looks like
-  public applyTheme(themeConfig: Record<string, any>, themeName: string): void {
+  public applyTheme(themeConfig: Record<string, any>, themeName: string): string {
     // Loop through all the themes
     const keys = Object.keys(themeConfig['Themes']);
 
@@ -37,7 +39,7 @@ export class LottieTheming {
             }
           });
           // details for each color token
-          console.log(propertyName, color, locator);
+          // console.log(propertyName, color, locator);
 
           [...useRegistry().keys()]
             // Filter color properties
@@ -56,16 +58,33 @@ export class LottieTheming {
         });
       }
     });
+    // console.log(this.animation.toJSON());
+    // print out lottie (just testing purposes)
+    const data = JSON.stringify(this.animation.toJSON());
+    // Write JSON string to a file
+
+    // console.log(data);
+
+    return data;
   }
 
   public async init(src: string): Promise<Animation> {
     const anim = await Animation.fromURL(src);
 
+    this.animation = anim;
     const colors = anim.colorsVerbose;
 
     this.colors = colors;
     // console.log(colors);
     this.tokenize();
+
+    return anim;
+  }
+
+  public async mapAnimation(src: string): Promise<Animation> {
+    const anim = await Animation.fromURL(src);
+
+    this.animation = anim;
 
     return anim;
   }
@@ -82,13 +101,18 @@ export class LottieTheming {
 
     const keys = Object.keys(this.colors);
 
-    keys.forEach((key: string, index: number) => {
-      const name = `Color ${index}`;
+    keys.forEach((key: string) => {
+      const paths = key.split('.');
+      const locator = paths[0];
+      const name = `Color ${locator}`;
+
+      paths.shift();
+      const path = paths.join(' <- ');
 
       themeConfig.Properties.push({
         name,
-        locatorType: 'Object model path',
-        locator: key,
+        path,
+        locator,
       });
       defaultTheme[name] = this.colors[key];
       // console.log(`${key}: ${this.colors[key]}`);
@@ -111,3 +135,5 @@ export class LottieTheming {
     return themeConfig;
   }
 }
+
+export default LottieTheming;
