@@ -18,7 +18,7 @@ test('Header contains correct text', async () => {
   // initialize library
   await theming.init('https://assets3.lottiefiles.com/packages/lf20_wgh8xmh0.json');
   // generate themeconfig file
-  const themeConfig = theming.tokenize();
+  const themeConfig = theming.createConfig();
 
   // developer/designer process 2
   // modify the themeconfig object

@@ -68,28 +68,7 @@ export class LottieTheming {
     return data;
   }
 
-  public async init(src: string): Promise<Animation> {
-    const anim = await Animation.fromURL(src);
-
-    this.animation = anim;
-    const colors = anim.colorsVerbose;
-
-    this.colors = colors;
-    // console.log(colors);
-    this.tokenize();
-
-    return anim;
-  }
-
-  public async mapAnimation(src: string): Promise<Animation> {
-    const anim = await Animation.fromURL(src);
-
-    this.animation = anim;
-
-    return anim;
-  }
-
-  public tokenize(): Record<string, any> {
+  public createConfig(): Record<string, any> {
     // main theme config object
     const themeConfig = {
       Name: 'testTheme' as string,
@@ -133,6 +112,27 @@ export class LottieTheming {
     //   console.log('JSON data is saved.');
     // });
     return themeConfig;
+  }
+
+  public async init(src: string): Promise<Animation> {
+    const anim = await Animation.fromURL(src);
+
+    this.animation = anim;
+    const colors = anim.colorsVerbose;
+
+    this.colors = colors;
+    // console.log(colors);
+    this.createConfig();
+
+    return anim;
+  }
+
+  public async mapAnimation(src: string): Promise<Animation> {
+    const anim = await Animation.fromURL(src);
+
+    this.animation = anim;
+
+    return anim;
   }
 }
 
