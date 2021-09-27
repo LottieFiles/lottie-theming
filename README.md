@@ -130,7 +130,7 @@ const lottie = theming.applyTheme(themeConfig, 'DarkTheme');
 
 ## Testing and development
 
-Testing with jest is set up with jest and you can run yarn test. The source code is located in
+Testing with jest is set up and you can run yarn test to run the .test file. The source code is located in
 packages/lib/src/lottie-theming.ts. This library depends on color extraction from the
 [Lottie-JS Library](https://github.com/LottieFiles/lottie-js) which allows the user to map a Lottie into an object model
 with named properties. Do have a look at Lottie-JS Library here [click here](https://github.com/LottieFiles/lottie-js)
