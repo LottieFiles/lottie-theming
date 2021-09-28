@@ -12,6 +12,8 @@ export class LottieTheming {
 
   public colors: Record<string, any> = {};
 
+  public textLayers: Record<string, any> = {};
+
   // refer to ../test/sample-config to see the what the themeConfig structure looks like
   public applyTheme(themeConfig: Record<string, any>, themeName: string): string {
     // Loop through all the themes
@@ -33,7 +35,6 @@ export class LottieTheming {
           const propertyKeys = Object.keys(themeConfig['Properties']);
 
           propertyKeys.forEach((propertyKey: string) => {
-            // console.log(themeConfig['Properties'][propertyKey].name);
             if (themeConfig['Properties'][propertyKey].name === propertyName) {
               locator = themeConfig['Properties'][propertyKey].locator;
             }
@@ -84,6 +85,7 @@ export class LottieTheming {
       const paths = key.split('.');
       const locator = paths[0];
       const name = `Color ${locator}`;
+      const type = 'color';
 
       paths.shift();
       const path = paths.join(' <- ');
@@ -92,25 +94,15 @@ export class LottieTheming {
         name,
         path,
         locator,
+        type,
       });
       defaultTheme[name] = this.colors[key];
       // console.log(`${key}: ${this.colors[key]}`);
     });
+
     // Push the default theme into themes array.
     themeConfig.Themes.push({ defaultTheme });
 
-    // Print full theme config
-    // console.dir(themeConfig, { depth: null });
-
-    // node file write
-    // const data = JSON.stringify(themeConfig);
-    // // Write JSON string to a file
-    // fs.writeFile('demo-theme.json', data, (err) => {
-    //   if (err) {
-    //     throw err;
-    //   }
-    //   console.log('JSON data is saved.');
-    // });
     return themeConfig;
   }
 
@@ -119,7 +111,9 @@ export class LottieTheming {
 
     this.animation = anim;
     const colors = anim.colorsVerbose;
+    const textLayers = anim.textLayers;
 
+    this.textLayers = textLayers;
     this.colors = colors;
     // console.log(colors);
     this.createConfig();

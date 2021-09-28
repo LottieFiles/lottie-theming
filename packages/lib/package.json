@@ -4,8 +4,13 @@
   "description": "Lottie theming library",
   "keywords": [
     "lottie",
+    "lottiefiles",
     "theme",
-    "theming"
+    "theming",
+    "motion design",
+    "web",
+    "web animation",
+    "animation"
   ],
   "browser": "./dist/lottie-theming.umd.js",
   "main": "./dist/lottie-theming.cjs.js",
@@ -60,6 +65,6 @@
     "dist/"
   ],
   "dependencies": {
-    "@lottiefiles/lottie-js": "portal:../../../lottie-js"
+    "@lottiefiles/lottie-js": "0.1.1"
   }
 }

@@ -1474,15 +1474,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lottiefiles/lottie-js@portal:../lottie-js::locator=%40lottiefiles%2Ftheming-monorepo%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@lottiefiles/lottie-js@portal:../lottie-js::locator=%40lottiefiles%2Ftheming-monorepo%40workspace%3A."
+"@lottiefiles/lottie-js@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@lottiefiles/lottie-js@npm:0.1.0"
   dependencies:
     cross-fetch: ^3.0.6
     typedoc-github-wiki-theme: 0.2.0
     typedoc-plugin-markdown: 3.6.1
+  checksum: 9ce8253818aa49f6cd184f4dcf31451adeeb9d106550ada3dced0e6751662a2776eebf3a807a1efa5db017b930089ae4d2e8df1b11a75521a8a4a3c7e3128c6b
   languageName: node
-  linkType: soft
+  linkType: hard
+
+"@lottiefiles/lottie-js@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@lottiefiles/lottie-js@npm:0.1.1"
+  dependencies:
+    cross-fetch: ^3.0.6
+    typedoc-github-wiki-theme: 0.2.0
+    typedoc-plugin-markdown: 3.6.1
+  checksum: 709e6f0879e507f6d70644129f2b639dbbff9f92d68b5a123ed94ce529f85df7fd4caa6ef536f6d4586d5b21080c3483576561e90e6066552ee6c3a8eeeb1be5
+  languageName: node
+  linkType: hard
 
 "@lottiefiles/lottie-theming-cli@workspace:packages/cli":
   version: 0.0.0-use.local
@@ -1502,7 +1514,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lottiefiles/lottie-theming@portal:/Users/karamalie/Sites/lottie-theming/packages/lib::locator=%40lottiefiles%2Ftheming-monorepo%40workspace%3A."
   dependencies:
-    "@lottiefiles/lottie-js": "portal:../../../lottie-js"
+    "@lottiefiles/lottie-js": 0.1.0
   languageName: node
   linkType: soft
 
@@ -1510,7 +1522,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lottiefiles/lottie-theming@workspace:packages/lib"
   dependencies:
-    "@lottiefiles/lottie-js": "portal:../../../lottie-js"
+    "@lottiefiles/lottie-js": 0.1.1
     "@rollup/plugin-commonjs": 20.0.0
     "@rollup/plugin-node-resolve": 13.0.4
     "@rollup/plugin-strip": 2.1.0
@@ -9870,11 +9882,11 @@ resolve@~1.19.0:
   linkType: hard
 
 "uglify-js@npm:^3.1.4":
-  version: 3.14.1
-  resolution: "uglify-js@npm:3.14.1"
+  version: 3.14.2
+  resolution: "uglify-js@npm:3.14.2"
   bin:
     uglifyjs: bin/uglifyjs
-  checksum: 2685f53baeddd4c370329352e0bf9b458918d6e422e8c97b59335196427ab08d972a69202e763bffec9ff0d9bd4fc477b0a60788b1e709a4530fc40f47290b34
+  checksum: 4d8e5c63b2c0455b598cc09ade538cd4fe6d68cb46a9bc563464d749650047592d96aff5a283c1c29a0c27a6ce8f9eb0b3a33525b3e7555b841a53b2b32d6219
   languageName: node
   linkType: hard
 
