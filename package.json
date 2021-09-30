@@ -1,11 +1,12 @@
 {
   "name": "@lottiefiles/theming-monorepo",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "build": "yarn workspaces foreach -vpt run build",
     "clean": "yarn workspaces foreach -vp run clean",
     "dev": "yarn workspaces foreach -vpt run build -w",
+    "release": "yarn workspaces foreach -vpt run release",
     "format": "prettier --plugin=prettier-plugin-package --write .",
     "lint": "eslint --fix \"**/*.{cjs,mjs,js,jsx,ts,tsx}\"",
     "start": "yarn workspaces foreach -vpt run start",
