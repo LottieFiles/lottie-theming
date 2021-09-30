@@ -88,7 +88,7 @@ export class LottieTheming {
       const type = 'color';
 
       paths.shift();
-      const path = paths.join(' <- ');
+      const path = paths.join('.');
 
       themeConfig.Properties.push({
         name,

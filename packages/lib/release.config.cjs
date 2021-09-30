@@ -22,7 +22,7 @@ const SUCCESS_COMMENT = `:tada: This \${issue.pull_request ? 'pull request is in
  * https://github.com/semantic-release/changelog
  */
 module.exports = {
-  branches: ['master', { name: 'beta', prerelease: true }],
+  branches: ['main', { name: 'beta', prerelease: true }],
   tagFormat: 'v${version}',
   ci: true,
   plugins: [
