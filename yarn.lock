@@ -1708,6 +1708,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lottiefiles/lottie-theming@portal:/Users/karamalie/Sites/lottie-theming/packages/lib::locator=%40lottiefiles%2Ftheming-monorepo%40workspace%3A."
   dependencies:
+    "@changesets/cli": 2.18.0
     "@lottiefiles/lottie-js": 0.2.1
   languageName: node
   linkType: soft

@@ -2392,6 +2392,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/lib/",
           "packageDependencies": [
             ["@lottiefiles/lottie-theming", "portal:/Users/karamalie/Sites/lottie-theming/packages/lib::locator=%40lottiefiles%2Ftheming-monorepo%40workspace%3A."],
+            ["@changesets/cli", "npm:2.18.0"],
             ["@lottiefiles/lottie-js", "npm:0.2.1"]
           ],
           "linkType": "SOFT",
