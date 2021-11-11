@@ -40,7 +40,8 @@
     "dev": "vite build --watch",
     "build": "vite build",
     "clean": "shx rm -rf dist",
-    "test": "jest"
+    "test": "jest",
+    "release": "yarn build && yarn changeset version && yarn changeset publish"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "20.0.0",
@@ -56,22 +57,17 @@
     "rollup-plugin-esbuild": "4.5.0",
     "rollup-plugin-filesize": "9.1.1",
     "rollup-plugin-typescript2": "0.30.0",
+    "semantic-release": "^17.4.2",
     "shx": "0.3.3",
     "ts-jest": "27.0.4",
     "typescript": "4.3.5",
-    "vite": "2.4.4",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/commit-analyzer": "^8.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "@semantic-release/github": "^7.2.1",
-    "@semantic-release/npm": "^7.1.1",
-    "@semantic-release/release-notes-generator": "^9.0.2",
-    "semantic-release": "^17.4.2"
+    "vite": "2.4.4"
   },
   "files": [
     "dist/"
   ],
   "dependencies": {
-    "@lottiefiles/lottie-js": "0.1.1"
+    "@changesets/cli": "2.18.0",
+    "@lottiefiles/lottie-js": "0.2.1"
   }
 }

@@ -82,9 +82,6 @@
     // Whether implicit 'this' is allowed.
     "noImplicitThis": true,
 
-    // Whether to force indexed signature property access to not use dot syntax.
-    "noPropertyAccessFromIndexSignature": true,
-
     // Whether to allow unused local variables.
     "noUnusedLocals": true,
 
