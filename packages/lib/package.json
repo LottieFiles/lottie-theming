@@ -44,6 +44,7 @@
     "release": "yarn build && yarn changeset version && yarn changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "2.18.0",
     "@rollup/plugin-commonjs": "20.0.0",
     "@rollup/plugin-node-resolve": "13.0.4",
     "@rollup/plugin-strip": "2.1.0",
@@ -67,7 +68,6 @@
     "dist/"
   ],
   "dependencies": {
-    "@changesets/cli": "2.18.0",
     "@lottiefiles/lottie-js": "0.2.1"
   }
 }
