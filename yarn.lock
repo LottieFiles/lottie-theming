@@ -1694,7 +1694,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lottiefiles/lottie-theming-cli@workspace:packages/cli"
   dependencies:
-    "@lottiefiles/lottie-theming": "workspace:*"
+    "@lottiefiles/lottie-theming": ../lib
     "@types/node": ^16.4.7
     "@types/yargs": 17.0.2
     shx: 0.3.3
@@ -1704,7 +1704,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lottiefiles/lottie-theming@workspace:*, @lottiefiles/lottie-theming@workspace:packages/lib":
+"@lottiefiles/lottie-theming@file:../lib::locator=%40lottiefiles%2Flottie-theming-cli%40workspace%3Apackages%2Fcli":
+  version: 0.0.2
+  resolution: "@lottiefiles/lottie-theming@file:../lib#../lib::hash=5dd4b4&locator=%40lottiefiles%2Flottie-theming-cli%40workspace%3Apackages%2Fcli"
+  dependencies:
+    "@lottiefiles/lottie-js": 0.2.1
+  checksum: 50770af9f90f5f5abec13d94b82055ab05ea2ab64edfd2148e642869dca53972e0650f17342fbf04d2eb67d1ac173df23d9c461e23f9a39f782a29c035cb5bc8
+  languageName: node
+  linkType: hard
+
+"@lottiefiles/lottie-theming@workspace:packages/lib":
   version: 0.0.0-use.local
   resolution: "@lottiefiles/lottie-theming@workspace:packages/lib"
   dependencies:

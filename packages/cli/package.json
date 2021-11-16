@@ -10,7 +10,7 @@
   ],
   "main": "./src/index.ts",
   "publishConfig": {
-    "access": "public",
+    "access": "restricted",
     "bin": {
       "lottie-theming": "dist/lottie-theming-cli.es.js"
     },
@@ -39,7 +39,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@lottiefiles/lottie-theming": "workspace:*",
+    "@lottiefiles/lottie-theming": "../lib",
     "yargs": "17.1.0"
   },
   "devDependencies": {

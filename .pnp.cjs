@@ -2388,6 +2388,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@lottiefiles/lottie-theming", [
+        ["file:../lib#../lib::hash=5dd4b4&locator=%40lottiefiles%2Flottie-theming-cli%40workspace%3Apackages%2Fcli", {
+          "packageLocation": "./.yarn/cache/@lottiefiles-lottie-theming-file-6fff0f7ec7-50770af9f9.zip/node_modules/@lottiefiles/lottie-theming/",
+          "packageDependencies": [
+            ["@lottiefiles/lottie-theming", "file:../lib#../lib::hash=5dd4b4&locator=%40lottiefiles%2Flottie-theming-cli%40workspace%3Apackages%2Fcli"],
+            ["@lottiefiles/lottie-js", "npm:0.2.1"]
+          ],
+          "linkType": "HARD",
+        }],
         ["workspace:packages/lib", {
           "packageLocation": "./packages/lib/",
           "packageDependencies": [
@@ -2421,7 +2429,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/cli/",
           "packageDependencies": [
             ["@lottiefiles/lottie-theming-cli", "workspace:packages/cli"],
-            ["@lottiefiles/lottie-theming", "workspace:packages/lib"],
+            ["@lottiefiles/lottie-theming", "file:../lib#../lib::hash=5dd4b4&locator=%40lottiefiles%2Flottie-theming-cli%40workspace%3Apackages%2Fcli"],
             ["@types/node", "npm:16.4.7"],
             ["@types/yargs", "npm:17.0.2"],
             ["shx", "npm:0.3.3"],
@@ -2676,7 +2684,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lru-cache", "npm:6.0.0"],
             ["mkdirp", "npm:1.0.4"],
             ["npm-pick-manifest", "npm:6.1.1"],
-            ["promise-inflight", "virtual:b85bc3f444ffaf1ed05d97da5b876360753cc42baad9edde6f8dfa4ddd18626276fd2905a01d195754cbea1c14bf81b5ad60fc333b9e366358ec67cbe0379524#npm:1.0.1"],
+            ["promise-inflight", "virtual:7b4a3a5b83dd58ae7ce7698db506d3491e7014f774e78d5d0d3f6df0db964e99401515781c14a487335f1366f0d1c448759b6d13f1ae2d0ef08e605c4b8d5cd4#npm:1.0.1"],
             ["promise-retry", "npm:2.0.1"],
             ["semver", "npm:7.3.5"],
             ["which", "npm:2.0.2"]
@@ -4980,7 +4988,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["minipass-pipeline", "npm:1.2.4"],
             ["mkdirp", "npm:1.0.4"],
             ["p-map", "npm:4.0.0"],
-            ["promise-inflight", "virtual:b85bc3f444ffaf1ed05d97da5b876360753cc42baad9edde6f8dfa4ddd18626276fd2905a01d195754cbea1c14bf81b5ad60fc333b9e366358ec67cbe0379524#npm:1.0.1"],
+            ["promise-inflight", "virtual:7b4a3a5b83dd58ae7ce7698db506d3491e7014f774e78d5d0d3f6df0db964e99401515781c14a487335f1366f0d1c448759b6d13f1ae2d0ef08e605c4b8d5cd4#npm:1.0.1"],
             ["rimraf", "npm:3.0.2"],
             ["ssri", "npm:8.0.1"],
             ["tar", "npm:6.1.1"],
@@ -5005,7 +5013,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["minipass-pipeline", "npm:1.2.4"],
             ["mkdirp", "npm:1.0.4"],
             ["p-map", "npm:4.0.0"],
-            ["promise-inflight", "virtual:b85bc3f444ffaf1ed05d97da5b876360753cc42baad9edde6f8dfa4ddd18626276fd2905a01d195754cbea1c14bf81b5ad60fc333b9e366358ec67cbe0379524#npm:1.0.1"],
+            ["promise-inflight", "virtual:7b4a3a5b83dd58ae7ce7698db506d3491e7014f774e78d5d0d3f6df0db964e99401515781c14a487335f1366f0d1c448759b6d13f1ae2d0ef08e605c4b8d5cd4#npm:1.0.1"],
             ["rimraf", "npm:3.0.2"],
             ["ssri", "npm:8.0.1"],
             ["tar", "npm:6.1.1"],
@@ -12230,10 +12238,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:b85bc3f444ffaf1ed05d97da5b876360753cc42baad9edde6f8dfa4ddd18626276fd2905a01d195754cbea1c14bf81b5ad60fc333b9e366358ec67cbe0379524#npm:1.0.1", {
-          "packageLocation": "./.yarn/__virtual__/promise-inflight-virtual-838f1babdd/0/cache/promise-inflight-npm-1.0.1-5bb925afac-2274948309.zip/node_modules/promise-inflight/",
+        ["virtual:7b4a3a5b83dd58ae7ce7698db506d3491e7014f774e78d5d0d3f6df0db964e99401515781c14a487335f1366f0d1c448759b6d13f1ae2d0ef08e605c4b8d5cd4#npm:1.0.1", {
+          "packageLocation": "./.yarn/__virtual__/promise-inflight-virtual-1670fc78d1/0/cache/promise-inflight-npm-1.0.1-5bb925afac-2274948309.zip/node_modules/promise-inflight/",
           "packageDependencies": [
-            ["promise-inflight", "virtual:b85bc3f444ffaf1ed05d97da5b876360753cc42baad9edde6f8dfa4ddd18626276fd2905a01d195754cbea1c14bf81b5ad60fc333b9e366358ec67cbe0379524#npm:1.0.1"],
+            ["promise-inflight", "virtual:7b4a3a5b83dd58ae7ce7698db506d3491e7014f774e78d5d0d3f6df0db964e99401515781c14a487335f1366f0d1c448759b6d13f1ae2d0ef08e605c4b8d5cd4#npm:1.0.1"],
             ["bluebird", null]
           ],
           "packagePeers": [

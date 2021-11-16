@@ -5,7 +5,7 @@
 //
 import yargs from 'yargs';
 
-//import { commands } from './commands';
+// import { commands } from './commands';
 import { applyThemeCommand } from './commands/apply-theme-command';
 
 yargs.command(applyThemeCommand).demandCommand();

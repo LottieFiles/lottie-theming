@@ -2,9 +2,9 @@
  * Copyright 2021 Design Barn Inc.
  */
 
-import fs from 'fs';
+// import fs from 'fs';
 
-import { LottieTheming } from '@lottiefiles/lottie-theming';
+// import { LottieTheming } from '@lottiefiles/lottie-theming';
 import { Arguments, CommandModule } from 'yargs';
 
 interface ScaffoldArgs extends Arguments {
@@ -29,17 +29,17 @@ const scaffoldCommand: CommandModule<void, ScaffoldArgs> = {
 
     console.log(`Extracting theme file for lottie: ${lottiePath} to ${themePath}`);
 
-    const themer = new LottieTheming();
+    // const themer = new LottieTheming();
 
-    await themer.init(lottiePath);
-    const themeModel = themer.tokenize();
+    // await themer.init(lottiePath);
+    // const themeModel = themer.createConfig();
 
     // print full theme config if we receive a --debug?
     // console.dir(themeModel, { depth: null });
 
-    const data = JSON.stringify(themeModel);
+    // const data = JSON.stringify(themeModel);
 
-    await fs.promises.writeFile(argv.themePath, data);
+    // await fs.promises.writeFile(argv.themePath, data);
   },
 };
 

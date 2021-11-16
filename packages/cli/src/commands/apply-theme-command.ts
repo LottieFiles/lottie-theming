@@ -2,9 +2,9 @@
  * Copyright 2021 Design Barn Inc.
  */
 
-import { writeFile } from 'fs/promises';
+// import { writeFile } from 'fs/promises';
 
-import { LottieTheming } from '@lottiefiles/lottie-theming';
+// import { LottieTheming } from '@lottiefiles/lottie-theming';
 import { Arguments, CommandModule } from 'yargs';
 
 interface ApplyThemeArgs {
@@ -34,14 +34,14 @@ const applyThemeCommand: CommandModule<unknown, ApplyThemeArgs> = {
   handler: async (argv: Arguments<ApplyThemeArgs>) => {
     console.log(`Applying ${argv.themeName} theme from ${argv.themePath} to lottie: ${argv.lottie}`);
 
-    const themer = new LottieTheming();
+    // const themer = new LottieTheming();
 
-    await themer.init(argv.lottie);
-    const themedLottie = themer.applyTheme(argv.themePath, argv.themeName);
+    // await themer.init(argv.lottie);
+    // const themedLottie = themer.applyTheme({}, argv.themeName);
 
-    const data = JSON.stringify(themedLottie);
+    // const data = JSON.stringify(themedLottie);
 
-    writeFile(argv.newLottiePath, data);
+    // writeFile(argv.newLottiePath, data);
   },
 };
 
