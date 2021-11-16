@@ -39,7 +39,6 @@
     "dist/"
   ],
   "dependencies": {
-    "@lottiefiles/lottie-theming": "workspaces:*",
     "yargs": "17.1.0"
   },
   "devDependencies": {
