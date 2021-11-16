@@ -1,3 +1,4 @@
+# .github/workflows/ci.yml
 name: Release
 on:
   push:
@@ -7,50 +8,48 @@ jobs:
     name: CI
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Checkout repo
+        uses: actions/checkout@master
         with:
           # This makes Actions fetch all Git history so that Changesets
           # can generate changelogs with the correct commits.
           fetch-depth: 0
 
-      # If you use a version of Node other than 14, change it here.
-      - name: Set up Node.js 14.x
+      # If you use a version of Node other than 12, change it here.
+      - name: Set up Node.js 12.x
         uses: actions/setup-node@master
         with:
-          node-version: 14.x
+          node-version: 12.x
 
       # If you use npm instead of yarn, change this to `npm install`.
       - name: Install dependencies
         run: yarn
 
-      # Change this to customize your lint command.
-      # - name: Lint
-      #  run: yarn lint
-
-      # Change this to customize your test command.
-      #- name: Test
-      #  run: yarn test
-
       # Change this to customize your build command.
       - name: Build
         run: yarn build
 
+      # Change this to customize your test command.
+      # - name: Test
+      #   run: yarn lint
+
       - name: Create .npmrc
         run: |
           cat << EOF > "$HOME/.npmrc"
-            @lottiefiles:registry=https://registry.npmjs.org
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
         env:
           NPM_TOKEN: ${{ secrets.NPMJS_TOKEN }}
 
-      - name: Create Release Pull Request or Publish to github
-        id: changesets
-        uses: changesets/action@master
-        with:
-          version: yarn changeset version
-          publish: yarn release
+      - name: Release snapshot
+        run: yarn release
         env:
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Post published version to GitHub checks
+        run: |
+          name=$(jq -r .name package.json)
+          version=$(jq -r .version package.json)
+          npx action-status --context=$name --state=success --description=$version --url="https://unpkg.com/$name@$version/"
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
