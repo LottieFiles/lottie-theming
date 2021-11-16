@@ -10,7 +10,7 @@ test('Header contains correct text', async () => {
     'Color 3': '#000000ff',
     'Color 4': '#ffffffff',
     'Color 5': '#ffffffff',
-    'Color 6': '#000000ff',
+    'Color 6': '#120000ff',
     'Color 7': '#000000ff',
   };
 
