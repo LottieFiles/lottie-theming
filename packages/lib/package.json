@@ -12,6 +12,9 @@
     "web animation",
     "animation"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "browser": "./dist/lottie-theming.umd.js",
   "main": "./dist/lottie-theming.cjs.js",
   "module": "./dist/lottie-theming.es.js",
