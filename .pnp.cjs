@@ -947,17 +947,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@changesets/cli", [
-<<<<<<< HEAD
         ["npm:2.18.0", {
           "packageLocation": "./.yarn/cache/@changesets-cli-npm-2.18.0-e3c334614b-0a20c15290.zip/node_modules/@changesets/cli/",
           "packageDependencies": [
             ["@changesets/cli", "npm:2.18.0"],
-=======
-        ["npm:2.16.0", {
-          "packageLocation": "./.yarn/cache/@changesets-cli-npm-2.16.0-d8bc546f99-19708c9f16.zip/node_modules/@changesets/cli/",
-          "packageDependencies": [
-            ["@changesets/cli", "npm:2.16.0"],
->>>>>>> fix/changeset
             ["@babel/runtime", "npm:7.16.3"],
             ["@changesets/apply-release-plan", "npm:5.0.2"],
             ["@changesets/assemble-release-plan", "npm:5.0.2"],
@@ -968,11 +961,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@changesets/git", "npm:1.2.0"],
             ["@changesets/logger", "npm:0.0.5"],
             ["@changesets/pre", "npm:1.0.7"],
-<<<<<<< HEAD
             ["@changesets/read", "npm:0.5.1"],
-=======
-            ["@changesets/read", "npm:0.4.7"],
->>>>>>> fix/changeset
             ["@changesets/types", "npm:4.0.1"],
             ["@changesets/write", "npm:0.1.5"],
             ["@manypkg/get-packages", "npm:1.1.3"],
