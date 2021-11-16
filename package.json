@@ -36,6 +36,5 @@
   },
   "workspaces": [
     "packages/*"
-  ],
-  "resolutions": {}
+  ]
 }

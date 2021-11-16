@@ -1704,16 +1704,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lottiefiles/lottie-theming@portal:/Users/karamalie/Sites/lottie-theming/packages/lib::locator=%40lottiefiles%2Ftheming-monorepo%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@lottiefiles/lottie-theming@portal:/Users/karamalie/Sites/lottie-theming/packages/lib::locator=%40lottiefiles%2Ftheming-monorepo%40workspace%3A."
-  dependencies:
-    "@changesets/cli": 2.18.0
-    "@lottiefiles/lottie-js": 0.2.1
-  languageName: node
-  linkType: soft
-
-"@lottiefiles/lottie-theming@workspace:packages/lib":
+"@lottiefiles/lottie-theming@workspace:*, @lottiefiles/lottie-theming@workspace:packages/lib":
   version: 0.0.0-use.local
   resolution: "@lottiefiles/lottie-theming@workspace:packages/lib"
   dependencies:
