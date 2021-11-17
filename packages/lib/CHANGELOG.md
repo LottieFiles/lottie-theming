@@ -1,5 +1,11 @@
 # @lottiefiles/lottie-theming
 
+## 2.0.0
+
+### Major Changes
+
+- 5d598f2: deployment processes
+
 ## 1.1.0
 
 ### Minor Changes
