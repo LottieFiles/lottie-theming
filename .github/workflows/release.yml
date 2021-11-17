@@ -36,15 +36,6 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Create .npmrc
-        run: |
-          cat << EOF > "$HOME/.npmrc"
-            @lottiefiles:registry=https://registry.npmjs.com
-            //registry.npmjs.com/:_authToken=$NPM_TOKEN
-          EOF
-        env:
-          NPM_TOKEN: ${{ secrets.NPMJS_TOKEN }}
-
       - name: Create Release Pull Request or Publish to github
         id: changesets
         uses: changesets/action@master
