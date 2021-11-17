@@ -1,6 +1,13 @@
 # @lottiefiles/lottie-theming
 
+## 1.1.0
+
+### Minor Changes
+
+- 95b08b4: ci cd pipeline init
+
 ## 1.0.0
+
 ### Major Changes
 
 - 44c825f: changeset implementation
