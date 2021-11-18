@@ -36,7 +36,9 @@ jobs:
       - name: Create .npmrc
         run: |
           cat << EOF > "$HOME/.npmrc"
-            //npm.pkg.github.com/:_authToken=$NPM_TOKEN
+            @lottiefiles:registry=https://npm.pkg.github.com/
+            save=true
+            save-exact=true
           EOF
         env:
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
