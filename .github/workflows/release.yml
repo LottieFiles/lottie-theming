@@ -39,10 +39,11 @@ jobs:
       - name: Create .npmrc
         run: |
           cat << EOF > "$HOME/.npmrc"
-            //npm.pkg.github.com/:_authToken=$NPM_TOKEN
+            //https://npm.pkg.github.com/:_authToken=$GITHUB_TOKEN
+            @lottiefiles:registry=https://npm.pkg.github.com
           EOF
         env:
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release Pull Request or Publish to github
         id: changesets
