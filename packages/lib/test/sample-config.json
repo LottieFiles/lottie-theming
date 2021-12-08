@@ -1,29 +1,32 @@
 {
-  "Name": "demo.json",
-  "Properties": [
-    {
-      "name": "PersonHead",
-      "locatorType": "propName",
-      "locator": "head"
+  "lightTheme": {
+    "#arm": {
+      "fillColor": "#ffcc00",
+      "fillOpacity": 1
     },
-    {
-      "name": "PersonArm",
-      "locatorType": "className",
-      "locator": "arm"
+    ".legs": {
+      "strokeColor": "#ffffff"
     },
-    {
-      "name": "PersonFoot",
-      "locatorType": "jsonPath",
-      "locator": "$.layers[1].something.somethingelse"
+    ".skinColor": {
+      "fillColor": "#ffcc00"
+    },
+    "#heroText": {
+      "text": "MEEEE"
     }
-  ],
-  "Themes": [
-    {
-      "Theme1": {
-        "PersonHead": "#00FFAA",
-        "PersonArm": "#01F133",
-        "PersonFoot": "#055577"
-      }
+  },
+  "darkTheme": {
+    "#arm": {
+      "color": "#ffffff",
+      "fillColor": "#ffcc00"
+    },
+    ".legs": {
+      "strokeColor": "#ffffff"
+    },
+    ".skinColor": {
+      "fillColor": "#ffcc00"
+    },
+    "#heroText": {
+      "text": "MEEEE"
     }
-  ]
+  }
 }
