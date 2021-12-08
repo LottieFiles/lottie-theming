@@ -128,7 +128,6 @@ export class LottieTheming {
 
     return anim;
   }
-  // deployment test
 }
 
 export default LottieTheming;
