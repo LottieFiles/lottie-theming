@@ -1,5 +1,11 @@
 # @lottiefiles/lottie-theming
 
+## 2.0.1
+
+### Patch Changes
+
+- e1d85b8: patch bump, testing feature publish automation
+
 ## 2.0.0
 
 ### Major Changes
