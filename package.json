@@ -6,7 +6,7 @@
     "build": "yarn workspaces foreach -vpt run build",
     "clean": "yarn workspaces foreach -vp run clean",
     "dev": "yarn workspaces foreach -vpt run build -w",
-    "release": "yarn changeset version && yarn changeset publish",
+    "release": "changeset publish",
     "format": "prettier --plugin=prettier-plugin-package --write .",
     "lint": "eslint --fix \"**/*.{cjs,mjs,js,jsx,ts,tsx}\"",
     "start": "yarn workspaces foreach -vpt run start",
