@@ -41,7 +41,7 @@ jobs:
       - name: Create .npmrc
         run: |
           cat << EOF > "$HOME/.npmrc"
-            registry=https://npm.pkg.github.com/@lottiefiles
+            @lottiefiles:registry=https://npm.pkg.github.com
             //npm.pkg.github.com/:_authToken=$NPM_TOKEN
           EOF
         env:
@@ -49,7 +49,7 @@ jobs:
 
       - name: Create Release Pull Request or Publish to github
         id: changesets
-        uses: changesets/action@master
+        uses: changesets/action@v1
         with:
           version: yarn changeset version
           publish: yarn release
