@@ -2322,15 +2322,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@lottiefiles/lottie-js", [
-        ["npm:0.2.1", {
-          "packageLocation": "./.yarn/cache/@lottiefiles-lottie-js-npm-0.2.1-e825cccd80-098fa51c9b.zip/node_modules/@lottiefiles/lottie-js/",
+        ["portal:/Users/karamalie/Sites/lottie-js::locator=%40lottiefiles%2Flottie-theming%40workspace%3Apackages%2Flib", {
+          "packageLocation": "../lottie-js/",
           "packageDependencies": [
-            ["@lottiefiles/lottie-js", "npm:0.2.1"],
+            ["@lottiefiles/lottie-js", "portal:/Users/karamalie/Sites/lottie-js::locator=%40lottiefiles%2Flottie-theming%40workspace%3Apackages%2Flib"],
             ["cross-fetch", "npm:3.1.4"],
-            ["typedoc-github-wiki-theme", "virtual:e825cccd807dc06e56730cc0491c549eb97b85e9236c33f9e4ed696d1fb1e9cba20bf6512e83c0c3bc9ffb7668a8c64aaf48ff7065ddee227b70e05d65c1d7ac#npm:0.2.0"],
-            ["typedoc-plugin-markdown", "virtual:e825cccd807dc06e56730cc0491c549eb97b85e9236c33f9e4ed696d1fb1e9cba20bf6512e83c0c3bc9ffb7668a8c64aaf48ff7065ddee227b70e05d65c1d7ac#npm:3.6.1"]
+            ["typedoc-github-wiki-theme", "virtual:15277a51f5f49d64812c49a844976ef97f8254b4c7aa96fe19e1d0de30d5f54d94d354f9a42644af91e76bf995765f62c78826f9d3b0001e105c11e2aad69048#npm:0.2.0"],
+            ["typedoc-plugin-markdown", "virtual:15277a51f5f49d64812c49a844976ef97f8254b4c7aa96fe19e1d0de30d5f54d94d354f9a42644af91e76bf995765f62c78826f9d3b0001e105c11e2aad69048#npm:3.6.1"]
           ],
-          "linkType": "HARD",
+          "linkType": "SOFT",
         }]
       ]],
       ["@lottiefiles/lottie-theming", [
@@ -2338,7 +2338,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/lib/",
           "packageDependencies": [
             ["@lottiefiles/lottie-theming", "workspace:packages/lib"],
-            ["@lottiefiles/lottie-js", "npm:0.2.1"],
+            ["@lottiefiles/lottie-js", "portal:/Users/karamalie/Sites/lottie-js::locator=%40lottiefiles%2Flottie-theming%40workspace%3Apackages%2Flib"],
             ["@rollup/plugin-commonjs", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:20.0.0"],
             ["@rollup/plugin-node-resolve", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:13.0.4"],
             ["@rollup/plugin-strip", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:2.1.0"],
@@ -14388,14 +14388,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:e825cccd807dc06e56730cc0491c549eb97b85e9236c33f9e4ed696d1fb1e9cba20bf6512e83c0c3bc9ffb7668a8c64aaf48ff7065ddee227b70e05d65c1d7ac#npm:0.2.0", {
-          "packageLocation": "./.yarn/__virtual__/typedoc-github-wiki-theme-virtual-6a2cf372af/0/cache/typedoc-github-wiki-theme-npm-0.2.0-bc5a07e057-800b092612.zip/node_modules/typedoc-github-wiki-theme/",
+        ["virtual:15277a51f5f49d64812c49a844976ef97f8254b4c7aa96fe19e1d0de30d5f54d94d354f9a42644af91e76bf995765f62c78826f9d3b0001e105c11e2aad69048#npm:0.2.0", {
+          "packageLocation": "./.yarn/__virtual__/typedoc-github-wiki-theme-virtual-7899343c8b/0/cache/typedoc-github-wiki-theme-npm-0.2.0-bc5a07e057-800b092612.zip/node_modules/typedoc-github-wiki-theme/",
           "packageDependencies": [
-            ["typedoc-github-wiki-theme", "virtual:e825cccd807dc06e56730cc0491c549eb97b85e9236c33f9e4ed696d1fb1e9cba20bf6512e83c0c3bc9ffb7668a8c64aaf48ff7065ddee227b70e05d65c1d7ac#npm:0.2.0"],
+            ["typedoc-github-wiki-theme", "virtual:15277a51f5f49d64812c49a844976ef97f8254b4c7aa96fe19e1d0de30d5f54d94d354f9a42644af91e76bf995765f62c78826f9d3b0001e105c11e2aad69048#npm:0.2.0"],
             ["@types/typedoc", null],
             ["@types/typedoc-plugin-markdown", null],
             ["typedoc", null],
-            ["typedoc-plugin-markdown", "virtual:e825cccd807dc06e56730cc0491c549eb97b85e9236c33f9e4ed696d1fb1e9cba20bf6512e83c0c3bc9ffb7668a8c64aaf48ff7065ddee227b70e05d65c1d7ac#npm:3.6.1"]
+            ["typedoc-plugin-markdown", "virtual:15277a51f5f49d64812c49a844976ef97f8254b4c7aa96fe19e1d0de30d5f54d94d354f9a42644af91e76bf995765f62c78826f9d3b0001e105c11e2aad69048#npm:3.6.1"]
           ],
           "packagePeers": [
             "@types/typedoc-plugin-markdown",
@@ -14414,10 +14414,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:e825cccd807dc06e56730cc0491c549eb97b85e9236c33f9e4ed696d1fb1e9cba20bf6512e83c0c3bc9ffb7668a8c64aaf48ff7065ddee227b70e05d65c1d7ac#npm:3.6.1", {
-          "packageLocation": "./.yarn/__virtual__/typedoc-plugin-markdown-virtual-92ad7b252d/0/cache/typedoc-plugin-markdown-npm-3.6.1-0a68a82bfc-3287cde6dd.zip/node_modules/typedoc-plugin-markdown/",
+        ["virtual:15277a51f5f49d64812c49a844976ef97f8254b4c7aa96fe19e1d0de30d5f54d94d354f9a42644af91e76bf995765f62c78826f9d3b0001e105c11e2aad69048#npm:3.6.1", {
+          "packageLocation": "./.yarn/__virtual__/typedoc-plugin-markdown-virtual-48d5c3ffc9/0/cache/typedoc-plugin-markdown-npm-3.6.1-0a68a82bfc-3287cde6dd.zip/node_modules/typedoc-plugin-markdown/",
           "packageDependencies": [
-            ["typedoc-plugin-markdown", "virtual:e825cccd807dc06e56730cc0491c549eb97b85e9236c33f9e4ed696d1fb1e9cba20bf6512e83c0c3bc9ffb7668a8c64aaf48ff7065ddee227b70e05d65c1d7ac#npm:3.6.1"],
+            ["typedoc-plugin-markdown", "virtual:15277a51f5f49d64812c49a844976ef97f8254b4c7aa96fe19e1d0de30d5f54d94d354f9a42644af91e76bf995765f62c78826f9d3b0001e105c11e2aad69048#npm:3.6.1"],
             ["@types/typedoc", null],
             ["handlebars", "npm:4.7.7"],
             ["typedoc", null]
