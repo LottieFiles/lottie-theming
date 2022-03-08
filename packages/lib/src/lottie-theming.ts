@@ -102,15 +102,21 @@ export class LottieTheming {
     return data;
   }
 
-  public autogenClasses(layer: Layer): void {
+  public autogenClasses(layer: Layer, layerIndex: number): void {
     if (layer instanceof ShapeLayer) {
       layer.shapes.forEach((shape: Shape) => {
         if (shape instanceof GroupShape) {
           const groupedShapes = shape.shapes;
 
+          // if its a solid color. work the solid color
           const fillShape = groupedShapes.find((element: Shape) => {
             return element instanceof FillShape;
           }) as FillShape;
+
+          // if its a gradient fill. work the gradient fill
+          const gradientFill = groupedShapes.find((element: Shape) => {
+            return element instanceof GradientFillShape;
+          }) as GradientFillShape;
 
           if (fillShape?.color.values[0]) {
             const color = fillShape.color.values[0].value as ColorRgba;
@@ -124,12 +130,73 @@ export class LottieTheming {
             } else {
               shape.classNames = className;
             }
+          } else if (gradientFill) {
+            const className = `color-${layerIndex}`;
+
+            if (shape.classNames) {
+              shape.classNames.concat(className);
+            } else {
+              shape.classNames = className;
+            }
           }
         }
       });
     }
     // apply classnames to shapes with each layer
     // apply classnames to shapes with the shapes array if shape is of group type
+  }
+
+  public availableColors(): Record<string, any> {
+    const config = {
+      defaultTheme: {} as any,
+    };
+    const tokens: any[] = [];
+    const layers = this.animation.layers;
+
+    layers.forEach((layer: Layer) => {
+      if (layer instanceof ShapeLayer) {
+        layer.shapes.forEach((shape: Shape) => {
+          if (shape.classNames && shape.classNames !== '') {
+            if (shape instanceof GroupShape) {
+              let col = '';
+              const groupedShapes = shape.shapes;
+
+              // if its a solid color. work the solid color
+              const fillShape = groupedShapes.find((element: Shape) => {
+                return element instanceof FillShape;
+              }) as FillShape;
+
+              // if its a gradient fill. work the gradient fill
+              const gradientFill = groupedShapes.find((element: Shape) => {
+                return element instanceof GradientFillShape;
+              }) as GradientFillShape;
+
+              if (fillShape?.color.values[0]) {
+                const color = fillShape.color.values[0].value as ColorRgba;
+
+                // handle rgb when a is not present
+                col = rgbaToHex([color.r * 255, color.g * 255, color.b * 255, color.a]);
+              } else if (gradientFill) {
+                // handle gradients. find the gradient col and return it. maybe return a placeholder first
+              }
+
+              const classname = shape.classNames;
+              const type = shape.type;
+              const name = shape.name;
+
+              tokens.push({ classname, type, col, name });
+              if (classname in config.defaultTheme) {
+                config.defaultTheme[classname].shapes.push(name);
+              } else {
+                config.defaultTheme[classname] = { fillColor: col, shapes: [name] };
+              }
+            }
+          }
+        });
+      }
+    });
+
+    return config;
   }
 
   public async init(src: string): Promise<Animation> {
@@ -157,8 +224,11 @@ export class LottieTheming {
   }
 
   public preprocessAnimation(): string {
+    let i = 0;
+
     this.animation.layers.forEach((layer: Layer) => {
-      this.autogenClasses(layer);
+      i += 1;
+      this.autogenClasses(layer, i);
     });
     const data = JSON.stringify(this.animation.toJSON());
 

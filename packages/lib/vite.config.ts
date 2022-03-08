@@ -28,6 +28,7 @@ module.exports = defineConfig({
         banner,
         sourcemap: true,
       },
+      plugins: [],
     },
   },
 });

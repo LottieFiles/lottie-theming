@@ -172,6 +172,8 @@ test('Header contains correct text', async () => {
   // await theming.init('https://assets10.lottiefiles.com/packages/lf20_xncpedel.json');
   await theming.init('https://assets4.lottiefiles.com/packages/lf20_zm7giqib.json');
   const lottie = theming.preprocessAnimation();
+  const tokens = theming.availableColors();
+
   // // generate themeconfig file
   // const themeConfig = theming.createConfig();
 
@@ -183,6 +185,8 @@ test('Header contains correct text', async () => {
   // press button 1. load default Theme
   // const lottie = theming.applyTheme(testConfig3, 'lightTheme');
   console.log(lottie);
+
+  console.dir(tokens, { depth: null });
 });
 
 // add metadata identifier to pre processing process

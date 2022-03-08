@@ -59,7 +59,7 @@
     "rollup-plugin-dts": "3.0.2",
     "rollup-plugin-esbuild": "4.5.0",
     "rollup-plugin-filesize": "9.1.1",
-    "rollup-plugin-typescript2": "0.30.0",
+    "rollup-plugin-typescript2": "0.31.2",
     "semantic-release": "^17.4.2",
     "shx": "0.3.3",
     "ts-jest": "27.0.4",

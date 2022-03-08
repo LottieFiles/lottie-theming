@@ -2351,7 +2351,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-dts", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:3.0.2"],
             ["rollup-plugin-esbuild", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:4.5.0"],
             ["rollup-plugin-filesize", "npm:9.1.1"],
-            ["rollup-plugin-typescript2", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:0.30.0"],
+            ["rollup-plugin-typescript2", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:0.31.2"],
             ["semantic-release", "npm:17.4.7"],
             ["shx", "npm:0.3.3"],
             ["ts-jest", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:27.0.4"],
@@ -3043,6 +3043,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@rollup-pluginutils-npm-4.1.1-7b6d7ea8b8-405f681c7d.zip/node_modules/@rollup/pluginutils/",
           "packageDependencies": [
             ["@rollup/pluginutils", "npm:4.1.1"],
+            ["estree-walker", "npm:2.0.2"],
+            ["picomatch", "npm:2.3.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:4.2.0", {
+          "packageLocation": "./.yarn/cache/@rollup-pluginutils-npm-4.2.0-c001caeeb5-2e86d9bfb9.zip/node_modules/@rollup/pluginutils/",
+          "packageDependencies": [
+            ["@rollup/pluginutils", "npm:4.2.0"],
             ["estree-walker", "npm:2.0.2"],
             ["picomatch", "npm:2.3.0"]
           ],
@@ -4058,6 +4067,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/visitor-keys", "npm:5.4.0"],
             ["@typescript-eslint/types", "npm:5.4.0"],
             ["eslint-visitor-keys", "npm:3.1.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@yarn-tool/resolve-package", [
+        ["npm:1.0.45", {
+          "packageLocation": "./.yarn/cache/@yarn-tool-resolve-package-npm-1.0.45-98810c0756-2f70d32fbe.zip/node_modules/@yarn-tool/resolve-package/",
+          "packageDependencies": [
+            ["@yarn-tool/resolve-package", "npm:1.0.45"],
+            ["pkg-dir", "npm:5.0.0"],
+            ["tslib", "npm:2.3.1"],
+            ["upath2", "virtual:98810c07564f0e65d0d3aa3f1a4a5877632cea1c5e2f8767be0f2a23bf18237a77bb888a8af550884ff78658f3a783c963b0d0a8cc7f599ac85c4e9f7038edfe#npm:3.1.12"]
           ],
           "linkType": "HARD",
         }]
@@ -11958,6 +11979,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["path-is-network-drive", [
+        ["npm:1.0.13", {
+          "packageLocation": "./.yarn/cache/path-is-network-drive-npm-1.0.13-1a70ae700b-05a8d3ed32.zip/node_modules/path-is-network-drive/",
+          "packageDependencies": [
+            ["path-is-network-drive", "npm:1.0.13"],
+            ["tslib", "npm:2.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["path-key", [
         ["npm:2.0.1", {
           "packageLocation": "./.yarn/cache/path-key-npm-2.0.1-b1a971833d-f7ab0ad42f.zip/node_modules/path-key/",
@@ -11979,6 +12010,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/path-parse-npm-1.0.7-09564527b7-49abf3d811.zip/node_modules/path-parse/",
           "packageDependencies": [
             ["path-parse", "npm:1.0.7"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["path-strip-sep", [
+        ["npm:1.0.10", {
+          "packageLocation": "./.yarn/cache/path-strip-sep-npm-1.0.10-5ceb8ab4cf-1553008356.zip/node_modules/path-strip-sep/",
+          "packageDependencies": [
+            ["path-strip-sep", "npm:1.0.10"],
+            ["tslib", "npm:2.3.1"]
           ],
           "linkType": "HARD",
         }]
@@ -12078,6 +12119,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["pkg-dir", "npm:4.2.0"],
             ["find-up", "npm:4.1.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:5.0.0", {
+          "packageLocation": "./.yarn/cache/pkg-dir-npm-5.0.0-3ba6768b42-b167bb8dac.zip/node_modules/pkg-dir/",
+          "packageDependencies": [
+            ["pkg-dir", "npm:5.0.0"],
+            ["find-up", "npm:5.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -12924,25 +12973,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["rollup-plugin-typescript2", [
-        ["npm:0.30.0", {
-          "packageLocation": "./.yarn/cache/rollup-plugin-typescript2-npm-0.30.0-f985b92bb6-e3097bb25c.zip/node_modules/rollup-plugin-typescript2/",
+        ["npm:0.31.2", {
+          "packageLocation": "./.yarn/cache/rollup-plugin-typescript2-npm-0.31.2-160eface40-ceebc68619.zip/node_modules/rollup-plugin-typescript2/",
           "packageDependencies": [
-            ["rollup-plugin-typescript2", "npm:0.30.0"]
+            ["rollup-plugin-typescript2", "npm:0.31.2"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:0.30.0", {
-          "packageLocation": "./.yarn/__virtual__/rollup-plugin-typescript2-virtual-ae27e65e4b/0/cache/rollup-plugin-typescript2-npm-0.30.0-f985b92bb6-e3097bb25c.zip/node_modules/rollup-plugin-typescript2/",
+        ["virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:0.31.2", {
+          "packageLocation": "./.yarn/__virtual__/rollup-plugin-typescript2-virtual-f30a78e311/0/cache/rollup-plugin-typescript2-npm-0.31.2-160eface40-ceebc68619.zip/node_modules/rollup-plugin-typescript2/",
           "packageDependencies": [
-            ["rollup-plugin-typescript2", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:0.30.0"],
-            ["@rollup/pluginutils", "npm:4.1.1"],
+            ["rollup-plugin-typescript2", "virtual:1aa4640902d65bfd44ec8bbaf560e8a2592221817b98ac881e4964dcfa9ebcbee3c51493ce6f5a29c96d3967eb5774122c1ab187eb5458bc7d81a69f24975b85#npm:0.31.2"],
+            ["@rollup/pluginutils", "npm:4.2.0"],
             ["@types/rollup", null],
             ["@types/typescript", null],
+            ["@yarn-tool/resolve-package", "npm:1.0.45"],
             ["find-cache-dir", "npm:3.3.2"],
-            ["fs-extra", "npm:8.1.0"],
+            ["fs-extra", "npm:10.0.0"],
             ["resolve", "patch:resolve@npm%3A1.20.0#~builtin<compat/resolve>::version=1.20.0&hash=07638b"],
             ["rollup", null],
-            ["tslib", "npm:2.1.0"],
+            ["tslib", "npm:2.3.1"],
             ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=ddd1e8"]
           ],
           "packagePeers": [
@@ -14528,6 +14578,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["unixify", "npm:1.0.0"],
             ["normalize-path", "npm:2.1.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["upath2", [
+        ["npm:3.1.12", {
+          "packageLocation": "./.yarn/cache/upath2-npm-3.1.12-2be6613840-b452e3b19a.zip/node_modules/upath2/",
+          "packageDependencies": [
+            ["upath2", "npm:3.1.12"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:98810c07564f0e65d0d3aa3f1a4a5877632cea1c5e2f8767be0f2a23bf18237a77bb888a8af550884ff78658f3a783c963b0d0a8cc7f599ac85c4e9f7038edfe#npm:3.1.12", {
+          "packageLocation": "./.yarn/__virtual__/upath2-virtual-f4218b493c/0/cache/upath2-npm-3.1.12-2be6613840-b452e3b19a.zip/node_modules/upath2/",
+          "packageDependencies": [
+            ["upath2", "virtual:98810c07564f0e65d0d3aa3f1a4a5877632cea1c5e2f8767be0f2a23bf18237a77bb888a8af550884ff78658f3a783c963b0d0a8cc7f599ac85c4e9f7038edfe#npm:3.1.12"],
+            ["@types/node", null],
+            ["path-is-network-drive", "npm:1.0.13"],
+            ["path-strip-sep", "npm:1.0.10"],
+            ["tslib", "npm:2.3.1"]
+          ],
+          "packagePeers": [
+            "@types/node"
           ],
           "linkType": "HARD",
         }]
