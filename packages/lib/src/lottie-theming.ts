@@ -199,6 +199,34 @@ export class LottieTheming {
     return config;
   }
 
+  public changeClass(className: string): void {
+    // Validate argument type
+    if (typeof className !== 'string') {
+      throw new Error(`ID value must be a string`);
+    }
+
+    this.animation.layers.forEach((layer) => {
+      if (layer instanceof ShapeLayer) {
+        layer.shapes.forEach((shape) => {
+          if (shape.classNames?.includes(className)) {
+            shape.classNames = className;
+          }
+          if (shape instanceof GroupShape) {
+            // group shapes will have a shapes array that contains all of the shapes that are grouped in
+            const groupedShapes = shape.shapes;
+
+            groupedShapes.forEach((groupedShape) => {
+              if (groupedShape.classNames?.includes(className)) {
+                shape.classNames = className;
+              }
+            });
+          }
+        });
+      }
+    });
+  }
+
+  //  public function changeColor(){}
   public async init(src: string): Promise<Animation> {
     const anim = await Animation.fromURL(src);
 
