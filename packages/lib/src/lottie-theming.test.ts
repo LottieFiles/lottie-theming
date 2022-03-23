@@ -167,11 +167,28 @@ test('Header contains correct text', async () => {
   //     },
   //   },
   // };
+
+  const testConfig4 = {
+    defaultTheme: {
+      '.color-ff0000ff': {
+        fillColor: '#ff0000ff',
+        shapes: ['Polystar 1'],
+      },
+      '.color-00ff5cff': {
+        fillColor: '#ff0000ff',
+        shapes: ['Rectangle 1'],
+      },
+      '.color-7b49ffff': {
+        fillColor: '#ff0000ff',
+        shapes: ['Ellipse 1'],
+      },
+    },
+  };
   // developer process 1
   // initialize library
   // await theming.init('https://assets10.lottiefiles.com/packages/lf20_xncpedel.json');
-  await theming.init('https://assets4.lottiefiles.com/packages/lf20_zm7giqib.json');
-  const lottie = theming.preprocessAnimation();
+  await theming.init('https://assets10.lottiefiles.com/packages/lf20_xncpedel.json');
+  theming.preprocessAnimation();
   const tokens = theming.availableColors();
 
   // // generate themeconfig file
@@ -183,10 +200,10 @@ test('Header contains correct text', async () => {
   // console.dir(themeConfig, { depth: null });
 
   // press button 1. load default Theme
-  // const lottie = theming.applyTheme(testConfig3, 'lightTheme');
-  console.log(lottie);
-
   console.dir(tokens, { depth: null });
+
+  const lottie = theming.applyTheme(testConfig4, 'defaultTheme');
+  console.log(lottie);
 });
 
 // add metadata identifier to pre processing process

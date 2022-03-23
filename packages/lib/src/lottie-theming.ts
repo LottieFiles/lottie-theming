@@ -122,8 +122,15 @@ export class LottieTheming {
             const color = fillShape.color.values[0].value as ColorRgba;
 
             // handle rgb when a is not present
-            const hex = rgbaToHex([color.r * 255, color.g * 255, color.b * 255, color.a]);
-            const className = `color-${hex}`;
+
+            const hex = rgbaToHex([
+              Math.round(color.r * 255),
+              Math.round(color.g * 255),
+              Math.round(color.b * 255),
+              color.a,
+            ]);
+
+            const className = `.color-${hex.substring(1)}`;
 
             if (shape.classNames) {
               shape.classNames.concat(className);
@@ -131,7 +138,7 @@ export class LottieTheming {
               shape.classNames = className;
             }
           } else if (gradientFill) {
-            const className = `color-${layerIndex}`;
+            const className = `.color-${layerIndex}`;
 
             if (shape.classNames) {
               shape.classNames.concat(className);
@@ -175,7 +182,12 @@ export class LottieTheming {
                 const color = fillShape.color.values[0].value as ColorRgba;
 
                 // handle rgb when a is not present
-                col = rgbaToHex([color.r * 255, color.g * 255, color.b * 255, color.a]);
+                col = rgbaToHex([
+                  Math.round(color.r * 255),
+                  Math.round(color.g * 255),
+                  Math.round(color.b * 255),
+                  color.a,
+                ]);
               } else if (gradientFill) {
                 // handle gradients. find the gradient col and return it. maybe return a placeholder first
               }
