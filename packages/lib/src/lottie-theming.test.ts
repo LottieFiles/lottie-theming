@@ -115,19 +115,19 @@ test('Header contains correct text', async () => {
   //         ],
   //       },
   //     },
-  //     // should take precedence over .shape
-  //     '.path': {
-  //       fillColor: '#D3f3f3',
-  //       strokeColor: {
-  //         type: 'linear-gradient',
-  //         startXY: [0, 0],
-  //         endXY: [100, 0],
-  //         colors: [
-  //           { offset: 0, color: '#FF0000' },
-  //           { offset: 0.5, color: '#00FFFF' },
-  //         ],
-  //       },
-  //     },
+  // should take precedence over .shape
+  // '.path': {
+  //   fillColor: '#D3f3f3',
+  //   strokeColor: {
+  //     type: 'linear-gradient',
+  //     startXY: [0, 0],
+  //     endXY: [100, 0],
+  //     colors: [
+  //       { offset: 0, color: '#FF0000' },
+  //       { offset: 0.5, color: '#00FFFF' },
+  //     ],
+  //   },
+  // },
   //     '.polystar': {
   //       fillColor: '#D68C8C',
   //     },
@@ -168,26 +168,28 @@ test('Header contains correct text', async () => {
   //   },
   // };
 
-  const testConfig4 = {
-    defaultTheme: {
-      '.color-ff0000ff': {
-        fillColor: '#ff0000ff',
-        shapes: ['Polystar 1'],
-      },
-      '.color-00ff5cff': {
-        fillColor: '#ff0000ff',
-        shapes: ['Rectangle 1'],
-      },
-      '.color-7b49ffff': {
-        fillColor: '#ff0000ff',
-        shapes: ['Ellipse 1'],
-      },
-    },
-  };
+  // const testConfig4 = {
+  //   defaultTheme: {
+  //     '.color-ff0000ff': {
+  //       fillColor: '#ff0000ff',
+  //       shapes: ['Polystar 1'],
+  //     },
+  //     '.color-00ff5cff': {
+  //       fillColor: '#ff0000ff',
+  //       shapes: ['Rectangle 1'],
+  //     },
+  //     '.color-7b49ffff': {
+  //       fillColor: '#ff0000ff',
+  //       shapes: ['Ellipse 1'],
+  //     },
+  //   },
+  // };
   // developer process 1
   // initialize library
-  // await theming.init('https://assets10.lottiefiles.com/packages/lf20_xncpedel.json');
-  await theming.init('https://assets10.lottiefiles.com/packages/lf20_xncpedel.json');
+
+  await theming.init('https://assets9.lottiefiles.com/private_files/lf30_e3ffgiai.json'); // gradients
+  // await theming.init('https://assets6.lottiefiles.com/packages/lf20_viaaiv0x.json'); // gradients
+  // await theming.init('https://assets10.lottiefiles.com/packages/lf20_xncpedel.json'); // no gradients
   theming.preprocessAnimation();
   const tokens = theming.availableColors();
 
@@ -202,8 +204,8 @@ test('Header contains correct text', async () => {
   // press button 1. load default Theme
   console.dir(tokens, { depth: null });
 
-  const lottie = theming.applyTheme(testConfig4, 'defaultTheme');
-  console.log(lottie);
+  // const lottie = theming.applyTheme(testConfig4, 'defaultTheme');
+  // console.log(lottie);
 });
 
 // add metadata identifier to pre processing process

@@ -21,6 +21,8 @@ import {
   Layer,
   rgbaToHex,
   ColorRgba,
+  GradientFillType,
+  useRegistry,
 } from '@lottiefiles/lottie-js';
 
 export class LottieTheming {
@@ -102,9 +104,9 @@ export class LottieTheming {
     return data;
   }
 
-  public autogenClasses(layer: Layer, layerIndex: number): void {
+  public autogenClasses(layer: Layer): void {
     if (layer instanceof ShapeLayer) {
-      layer.shapes.forEach((shape: Shape) => {
+      layer.shapes.forEach((shape: Shape, shapeIndex: number) => {
         if (shape instanceof GroupShape) {
           const groupedShapes = shape.shapes;
 
@@ -117,6 +119,14 @@ export class LottieTheming {
           const gradientFill = groupedShapes.find((element: Shape) => {
             return element instanceof GradientFillShape;
           }) as GradientFillShape;
+
+          if (shape.id) {
+            shape.id = `#${shape.id}`;
+          }
+
+          if (shape.classNames) {
+            shape.classNames = `.${shape.classNames}`;
+          }
 
           if (fillShape?.color.values[0]) {
             const color = fillShape.color.values[0].value as ColorRgba;
@@ -132,18 +142,14 @@ export class LottieTheming {
 
             const className = `.color-${hex.substring(1)}`;
 
-            if (shape.classNames) {
-              shape.classNames.concat(className);
-            } else {
-              shape.classNames = className;
+            if (!shape.id && !shape.classNames) {
+              shape.classNames = `${className}`;
             }
           } else if (gradientFill) {
-            const className = `.color-${layerIndex}`;
+            const className = `.gradient-${shapeIndex}`;
 
-            if (shape.classNames) {
-              shape.classNames.concat(className);
-            } else {
-              shape.classNames = className;
+            if (!shape.id && !shape.classNames) {
+              shape.classNames = `${className}`;
             }
           }
         }
@@ -163,9 +169,9 @@ export class LottieTheming {
     layers.forEach((layer: Layer) => {
       if (layer instanceof ShapeLayer) {
         layer.shapes.forEach((shape: Shape) => {
-          if (shape.classNames && shape.classNames !== '') {
+          if (shape.classNames || shape.id) {
             if (shape instanceof GroupShape) {
-              let col = '';
+              let col;
               const groupedShapes = shape.shapes;
 
               // if its a solid color. work the solid color
@@ -190,17 +196,71 @@ export class LottieTheming {
                 ]);
               } else if (gradientFill) {
                 // handle gradients. find the gradient col and return it. maybe return a placeholder first
+
+                // console.log(gradientFill.endPoint);
+                // console.log(gradientFill.gradientColors.gradientColors.values[0]?.value);
+
+                if (Array.isArray(gradientFill.gradientColors.gradientColors.values[0]?.value)) {
+                  const colObjects: any = [];
+
+                  if (
+                    gradientFill.gradientColors.gradientColors.values[0]?.value.length &&
+                    gradientFill.gradientColors.gradientColors.values[0]?.value.length % 2 === 0
+                  ) {
+                    //
+                    const splitcolors = [];
+
+                    for (let i = gradientFill.gradientColors.gradientColors.colorCount; i > 0; i -= 1) {
+                      splitcolors.push(
+                        gradientFill.gradientColors.gradientColors.values[0]?.value.splice(
+                          0,
+                          Math.ceil(gradientFill.gradientColors.gradientColors.values[0]?.value.length / i),
+                        ),
+                      );
+                    }
+                    splitcolors.forEach((grCol: number[]) => {
+                      const offset = grCol[0];
+
+                      grCol.shift();
+
+                      const arr = grCol.map(function (val: number) {
+                        return Math.round(val * 255);
+                      });
+
+                      const obj = { offset, color: rgbaToHex([...arr, 1]) };
+
+                      colObjects.push(obj);
+                    });
+                  } else {
+                    // alpha or transparency is here handle if needed
+                  }
+
+                  const indexOfGFT = Object.values(GradientFillType).indexOf(
+                    gradientFill.gradientType as unknown as GradientFillType,
+                  );
+
+                  const key = Object.keys(GradientFillType)[indexOfGFT];
+
+                  col = {
+                    type: key,
+                    startXY: gradientFill.startPoint.values[0]?.value,
+                    endXY: gradientFill.endPoint.values[0]?.value,
+                    colors: colObjects,
+                  };
+                }
               }
 
               const classname = shape.classNames;
+              const id = shape.id;
               const type = shape.type;
               const name = shape.name;
 
               tokens.push({ classname, type, col, name });
-              if (classname in config.defaultTheme) {
-                config.defaultTheme[classname].shapes.push(name);
-              } else {
-                config.defaultTheme[classname] = { fillColor: col, shapes: [name] };
+
+              if (classname) {
+                config.defaultTheme[classname] = { fillColor: col };
+              } else if (id) {
+                config.defaultTheme[id] = { fillColor: col };
               }
             }
           }
@@ -240,6 +300,7 @@ export class LottieTheming {
 
   //  public function changeColor(){}
   public async init(src: string): Promise<Animation> {
+    useRegistry().clear();
     const anim = await Animation.fromURL(src);
 
     this.animation = anim;
@@ -264,11 +325,8 @@ export class LottieTheming {
   }
 
   public preprocessAnimation(): string {
-    let i = 0;
-
     this.animation.layers.forEach((layer: Layer) => {
-      i += 1;
-      this.autogenClasses(layer, i);
+      this.autogenClasses(layer);
     });
     const data = JSON.stringify(this.animation.toJSON());
 
